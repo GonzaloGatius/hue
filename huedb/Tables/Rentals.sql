@@ -2,7 +2,7 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY,
 	[UserId] INT NOT NULL,
-	[Date] DATETIME2 NOT NULL,
+	[Date] DATETIME2 ,
 	[AccId] INT,
 	[BodyId] INT,
 	[FootwearId] INT,

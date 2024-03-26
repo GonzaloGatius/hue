@@ -4,6 +4,6 @@
 	[Name] NVARCHAR(50) NOT NULL,
 	[Stock] INT NOT NULL,
 	[Price] FLOAT,
-	[Size] NVARCHAR(20) NOT NULL,
+	[Size] NVARCHAR(20),
 	[Brand] NVARCHAR(50),
 )
