@@ -1,6 +1,10 @@
-﻿CREATE PROCEDURE [dbo].[spRentals_getallbyId]
-	@param1 int = 0,
-	@param2 int
+﻿CREATE PROCEDURE [dbo].[spRentals_getbyId]
+    @Id INT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT * 
+    FROM [dbo].[Rentals]
+    WHERE Id = @Id;
+END

@@ -1,6 +1,14 @@
 ﻿CREATE PROCEDURE [dbo].[spBody_create]
-	@param1 int = 0,
-	@param2 int
+	@Name NVARCHAR(50),
+	@Stock INT,
+	@Price INT,
+	@Size NVARCHAR(20),
+	@Mm INT,
+	@Brand NVARCHAR(50),
+	@Id INT OUTPUT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	insert INTO [dbo].[Body](Name, Stock, Price, Size, Mm, Brand)
+	values(@Name, @Stock, @Price, @Size, @Mm, @Brand)
+	SET @Id = SCOPE_IDENTITY
+END

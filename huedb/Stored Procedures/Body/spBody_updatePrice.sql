@@ -1,6 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spBody_updatePrice]
-	@param1 int = 0,
-	@param2 int
+	@Id INT,
+	@Price INT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+    SET NOCOUNT ON;
+    
+    UPDATE [dbo].[Body] 
+    SET Price = @Price
+    WHERE Id = @Id;
+END

@@ -1,6 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spUsers_updateAdmin]
-	@param1 int = 0,
-	@param2 int
+	@Id INT,
+	@Admin BIT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+    SET NOCOUNT ON;
+    
+    UPDATE [dbo].[Users] 
+    SET Admin = @Admin
+    WHERE Id = @Id;
+END

@@ -1,6 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[spUsers_create]
-	@param1 int = 0,
-	@param2 int
+	@Admin BIT,
+	@Email NVARCHAR(50),
+	@Password NVARCHAR(50),
+	@Id INT OUTPUT
+
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	INSERT INTO [dbo].[Users](Admin, Email, Password)
+	values(@Admin, @Email, @Password)
+	set @Id = SCOPE_IDENTITY
+END

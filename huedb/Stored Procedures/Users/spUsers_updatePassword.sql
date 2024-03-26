@@ -1,6 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spUsers_updatePassword]
-	@param1 int = 0,
-	@param2 int
+	@Id INT,
+	@Password INT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+    SET NOCOUNT ON;
+    
+    UPDATE [dbo].[Users] 
+    SET Password = @Password
+    WHERE Id = @Id;
+END

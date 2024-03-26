@@ -1,6 +1,13 @@
 ﻿CREATE PROCEDURE [dbo].[spFootwear_create]
-	@param1 int = 0,
-	@param2 int
+	@Name NVARCHAR(50),
+	@Stock INT,
+	@Price INT,
+	@Size NVARCHAR(20),
+	@Brand NVARCHAR(50),
+	@Id INT OUTPUT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	insert INTO [dbo].[Footwear](Name, Stock, Price, Size, Brand)
+	values(@Name, @Stock, @Price, @Size, @Brand)
+	SET @Id = SCOPE_IDENTITY
+END

@@ -1,6 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spFootwear_getall]
-	@param1 int = 0,
-	@param2 int
+	
+
+
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	set nocount on;
+	SELECT * FROM [dbo].[Footwear]
+END

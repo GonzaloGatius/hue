@@ -1,6 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[spUsers_getbyId]
-	@param1 int = 0,
-	@param2 int
+    @Id INT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT * 
+    FROM [dbo].[Users]
+    WHERE Id = @Id;
+END

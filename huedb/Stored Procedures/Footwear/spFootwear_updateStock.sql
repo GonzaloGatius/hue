@@ -1,6 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spFootwear_updateStock]
-	@param1 int = 0,
-	@param2 int
+	@Id INT,
+	@Stock INT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+    SET NOCOUNT ON;
+    
+    UPDATE [dbo].[Footwear] 
+    SET Stock = @Stock
+    WHERE Id = @Id;
+END
