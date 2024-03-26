@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Body]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(50) NOT NULL,
+	[Stock] INT NOT NULL,
+	[Price] FLOAT,
+	[Size] NVARCHAR(20) NOT NULL,
+	[Mm] INT,
+	[Brand] NVARCHAR(50),
+)

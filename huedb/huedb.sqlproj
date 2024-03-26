@@ -6,7 +6,7 @@
     <Name>huedb</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{f527cd6b-e86e-4ab5-941b-3c70d443aeae}</ProjectGuid>
+    <ProjectGuid>{80309e21-672e-44d9-b3d5-4d902014016e}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
@@ -56,5 +56,48 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Scripts" />
+    <Folder Include="Tables" />
+    <Folder Include="Stored Procedures" />
+    <Folder Include="Stored Procedures\Accesories" />
+    <Folder Include="Stored Procedures\Body" />
+    <Folder Include="Stored Procedures\Footwear" />
+    <Folder Include="Stored Procedures\Rentals" />
+    <Folder Include="Stored Procedures\Users" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\Accesories.sql" />
+    <Build Include="Tables\Body.sql" />
+    <Build Include="Tables\Footwear.sql" />
+    <Build Include="Tables\Users.sql" />
+    <Build Include="Tables\Rentals.sql" />
+    <Build Include="Stored Procedures\Accesories\spAccesories_create.sql" />
+    <Build Include="Stored Procedures\Accesories\spAccesories_getall.sql" />
+    <Build Include="Stored Procedures\Accesories\spAccesories_getbyId.sql" />
+    <Build Include="Stored Procedures\Accesories\spAccesories_updatePrice.sql" />
+    <Build Include="Stored Procedures\Accesories\spAccesories_updateStock.sql" />
+    <Build Include="Stored Procedures\Accesories\spAccesories_delete.sql" />
+    <Build Include="Stored Procedures\Body\spBody_create.sql" />
+    <Build Include="Stored Procedures\Body\spBody_delete.sql" />
+    <Build Include="Stored Procedures\Body\spBody_getall.sql" />
+    <Build Include="Stored Procedures\Body\spBody_getbyId.sql" />
+    <Build Include="Stored Procedures\Body\spBody_updatePrice.sql" />
+    <Build Include="Stored Procedures\Body\spBody_updateStock.sql" />
+    <Build Include="Stored Procedures\Footwear\spFootwear_updateStock.sql" />
+    <Build Include="Stored Procedures\Footwear\spFootwear_updatePrice.sql" />
+    <Build Include="Stored Procedures\Footwear\spFootwear_getbyId.sql" />
+    <Build Include="Stored Procedures\Footwear\spFootwear_getall.sql" />
+    <Build Include="Stored Procedures\Footwear\spFootwear_create.sql" />
+    <Build Include="Stored Procedures\Footwear\spFootwear_delete.sql" />
+    <Build Include="Stored Procedures\Users\spUsers_updatePassword.sql" />
+    <Build Include="Stored Procedures\Users\spUsers_updateAdmin.sql" />
+    <Build Include="Stored Procedures\Users\spUsers_getbyId.sql" />
+    <Build Include="Stored Procedures\Users\spUsers_getall.sql" />
+    <Build Include="Stored Procedures\Users\spUsers_delete.sql" />
+    <Build Include="Stored Procedures\Users\spUsers_create.sql" />
+    <Build Include="Stored Procedures\Rentals\spRentals_getallbyId.sql" />
+    <Build Include="Stored Procedures\Rentals\spRentals_getall.sql" />
+    <Build Include="Stored Procedures\Rentals\spRentals_delete.sql" />
+    <Build Include="Stored Procedures\Rentals\spRentals_create.sql" />
   </ItemGroup>
 </Project>
