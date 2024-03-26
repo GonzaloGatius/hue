@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libraryhue", "libraryhue.csproj", "{4D97D919-76B8-416A-A9ED-6605D519548F}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "huedb", "huedb\huedb.sqlproj", "{F527CD6B-E86E-4AB5-941B-3C70D443AEAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D97D919-76B8-416A-A9ED-6605D519548F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D97D919-76B8-416A-A9ED-6605D519548F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D97D919-76B8-416A-A9ED-6605D519548F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D97D919-76B8-416A-A9ED-6605D519548F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F527CD6B-E86E-4AB5-941B-3C70D443AEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F527CD6B-E86E-4AB5-941B-3C70D443AEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F527CD6B-E86E-4AB5-941B-3C70D443AEAE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F527CD6B-E86E-4AB5-941B-3C70D443AEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F527CD6B-E86E-4AB5-941B-3C70D443AEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F527CD6B-E86E-4AB5-941B-3C70D443AEAE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B5C5047-4AFA-48CD-80A2-F09794876482}
+	EndGlobalSection
+EndGlobal
