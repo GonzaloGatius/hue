@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Rentals]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
 	[UserId] INT NOT NULL,
 	[Date] DATETIME2 ,
 	[AccId] INT,

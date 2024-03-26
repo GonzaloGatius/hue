@@ -11,7 +11,7 @@ Plantilla de script posterior a la implementación
 */
 if not exists (SELECT * FROM [dbo].[Users])
     Insert into [dbo].[Users](Admin, Email, Password)
-    Values(TRUE, 'mati279@gmail.com', '34811105');
+    Values(1, 'mati279@gmail.com', '34811105');
 
 if not exists (SELECT * FROM [dbo].[Accesories])
 Insert into [dbo].[Accesories](Name, Stock, Price)
