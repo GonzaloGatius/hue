@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace libraryhue.DB
 {
-    public class SqlDB
+    public class SqlDB : IDataAccess
     {
         private readonly IConfiguration configuration;
 
@@ -27,7 +27,7 @@ namespace libraryhue.DB
             {
 
                 var rows = await connection.QueryAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
-                
+
                 return rows.ToList();
             }
         }
