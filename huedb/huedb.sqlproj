@@ -95,7 +95,7 @@
     <Build Include="Stored Procedures\Users\spUsers_getall.sql" />
     <Build Include="Stored Procedures\Users\spUsers_delete.sql" />
     <Build Include="Stored Procedures\Users\spUsers_create.sql" />
-    <Build Include="Stored Procedures\Rentals\spRentals_getallbyId.sql" />
+    <Build Include="Stored Procedures\Rentals\spRentals_getbyId.sql" />
     <Build Include="Stored Procedures\Rentals\spRentals_getall.sql" />
     <Build Include="Stored Procedures\Rentals\spRentals_delete.sql" />
     <Build Include="Stored Procedures\Rentals\spRentals_create.sql" />
