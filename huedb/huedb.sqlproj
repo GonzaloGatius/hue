@@ -100,7 +100,4 @@
     <Build Include="Stored Procedures\Rentals\spRentals_delete.sql" />
     <Build Include="Stored Procedures\Rentals\spRentals_create.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="Scripts\postDeploymentScript.sql" />
-  </ItemGroup>
 </Project>

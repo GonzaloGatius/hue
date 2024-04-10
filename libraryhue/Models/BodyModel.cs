@@ -15,5 +15,6 @@ namespace libraryhue.Models
         public string Size { get; set; }
         public int Mm { get; set; }
         public string Brand { get; set; }
+        public string Branda { get; set; }
     }
 }
