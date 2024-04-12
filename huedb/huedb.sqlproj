@@ -66,9 +66,6 @@
     <Folder Include="Stored Procedures\Users" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Accesories.sql" />
-    <Build Include="Tables\Body.sql" />
-    <Build Include="Tables\Footwear.sql" />
     <Build Include="Tables\Users.sql" />
     <Build Include="Tables\Rentals.sql" />
     <Build Include="Stored Procedures\Accesories\spAccesories_create.sql" />
@@ -99,6 +96,17 @@
     <Build Include="Stored Procedures\Rentals\spRentals_getall.sql" />
     <Build Include="Stored Procedures\Rentals\spRentals_delete.sql" />
     <Build Include="Stored Procedures\Rentals\spRentals_create.sql" />
+    <Build Include="Tables\Brands.sql" />
+    <Build Include="Tables\Sizes.sql" />
+    <Build Include="Tables\Colors.sql" />
+    <Build Include="Tables\NeopreneGears.sql" />
+    <Build Include="Tables\States.sql" />
+    <Build Include="Tables\Tanks.sql" />
+    <Build Include="Tables\BCDs.sql" />
+    <Build Include="Tables\Fins.sql" />
+    <Build Include="Tables\Masks.sql" />
+    <Build Include="Tables\OctopusParts.sql" />
+    <Build Include="Tables\Octopus.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\postDeploymentScript.sql" />

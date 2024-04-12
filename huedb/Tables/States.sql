@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[States]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[State] NVARCHAR(50) NOT NULL
+)
