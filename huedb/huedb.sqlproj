@@ -64,6 +64,7 @@
     <Folder Include="Stored Procedures\Footwear" />
     <Folder Include="Stored Procedures\Rentals" />
     <Folder Include="Stored Procedures\Users" />
+    <Folder Include="Stored Procedures\Generics" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Users.sql" />
@@ -110,6 +111,8 @@
     <Build Include="Tables\Hoods.sql" />
     <Build Include="Tables\Weights.sql" />
     <Build Include="Tables\WeightTypes.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_getall.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_getById.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\postDeploymentScript.sql" />
