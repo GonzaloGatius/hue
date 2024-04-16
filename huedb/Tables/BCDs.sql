@@ -10,5 +10,6 @@
     [Acquired] DATE,
     [Condition] Int,
     [State] INT  NOT NULL FOREIGN KEY REFERENCES States(Id),
+    [Price] INT NOT NULL,
     [Notes] NVARCHAR(2000)
     )

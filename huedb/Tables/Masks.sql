@@ -9,5 +9,6 @@
     [Condition] INT NOT NULL,
     [StateId] INT NOT NULL FOREIGN KEY REFERENCES States(Id),
     [ColorId] INT NOT NULL FOREIGN KEY REFERENCES Colors(Id),
+    [Price] INT NOT NULL,
     [Notes] NVARCHAR(2000)
 );
