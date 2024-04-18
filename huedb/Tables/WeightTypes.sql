@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[WeightTypes]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(100) NOT NULL
+)

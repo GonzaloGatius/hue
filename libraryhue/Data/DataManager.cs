@@ -43,7 +43,7 @@ namespace libraryhue.Data
 
         public async Task<List<T>> GetAll<T>()
         { 
-            return await dataAccess.LoadData<T, dynamic>(spGetAll, new { }, ConnectionStringData.ConnectionStringName);
+            return await dataAccess.LoadData<T, dynamic>("spGenerics_getall", new {}, ConnectionStringData.ConnectionStringName);
         }
 
         public async Task<T> GetById<T>(int Id)

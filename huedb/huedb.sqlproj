@@ -64,11 +64,9 @@
     <Folder Include="Stored Procedures\Footwear" />
     <Folder Include="Stored Procedures\Rentals" />
     <Folder Include="Stored Procedures\Users" />
+    <Folder Include="Stored Procedures\Generics" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Accesories.sql" />
-    <Build Include="Tables\Body.sql" />
-    <Build Include="Tables\Footwear.sql" />
     <Build Include="Tables\Users.sql" />
     <Build Include="Tables\Rentals.sql" />
     <Build Include="Stored Procedures\Accesories\spAccesories_create.sql" />
@@ -99,5 +97,21 @@
     <Build Include="Stored Procedures\Rentals\spRentals_getall.sql" />
     <Build Include="Stored Procedures\Rentals\spRentals_delete.sql" />
     <Build Include="Stored Procedures\Rentals\spRentals_create.sql" />
+    <Build Include="Tables\Brands.sql" />
+    <Build Include="Tables\Sizes.sql" />
+    <Build Include="Tables\Colors.sql" />
+    <Build Include="Tables\NeopreneGears.sql" />
+    <Build Include="Tables\States.sql" />
+    <Build Include="Tables\Tanks.sql" />
+    <Build Include="Tables\BCDs.sql" />
+    <Build Include="Tables\Fins.sql" />
+    <Build Include="Tables\Masks.sql" />
+    <Build Include="Tables\OctopusParts.sql" />
+    <Build Include="Tables\Octopus.sql" />
+    <Build Include="Tables\Hoods.sql" />
+    <Build Include="Tables\Weights.sql" />
+    <Build Include="Tables\WeightTypes.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_getall.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_getById.sql" />
   </ItemGroup>
 </Project>

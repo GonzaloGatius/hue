@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Sizes]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[Size] NVARCHAR(50) NOT NULL
+)
