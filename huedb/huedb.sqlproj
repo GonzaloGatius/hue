@@ -111,7 +111,14 @@
     <Build Include="Tables\Hoods.sql" />
     <Build Include="Tables\Weights.sql" />
     <Build Include="Tables\WeightTypes.sql" />
-    <Build Include="Stored Procedures\Generics\spGenerics_getall.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_getAll.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_getById.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_delete.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateName.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateInternNumber.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateStock.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateState.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updatePrice.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateCondition.sql" />
   </ItemGroup>
 </Project>
