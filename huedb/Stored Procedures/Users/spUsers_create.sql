@@ -8,5 +8,5 @@ AS
 BEGIN
 	INSERT INTO [dbo].[Users](Admin, Email, Password)
 	values(@Admin, @Email, @Password)
-	set @Id = SCOPE_IDENTITY
+	set @Id = SCOPE_IDENTITY();
 END
