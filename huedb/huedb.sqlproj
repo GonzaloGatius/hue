@@ -59,44 +59,18 @@
     <Folder Include="Scripts" />
     <Folder Include="Tables" />
     <Folder Include="Stored Procedures" />
-    <Folder Include="Stored Procedures\Accesories" />
-    <Folder Include="Stored Procedures\Body" />
-    <Folder Include="Stored Procedures\Footwear" />
-    <Folder Include="Stored Procedures\Rentals" />
     <Folder Include="Stored Procedures\Users" />
     <Folder Include="Stored Procedures\Generics" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Users.sql" />
     <Build Include="Tables\Rentals.sql" />
-    <Build Include="Stored Procedures\Accesories\spAccesories_create.sql" />
-    <Build Include="Stored Procedures\Accesories\spAccesories_getall.sql" />
-    <Build Include="Stored Procedures\Accesories\spAccesories_getbyId.sql" />
-    <Build Include="Stored Procedures\Accesories\spAccesories_updatePrice.sql" />
-    <Build Include="Stored Procedures\Accesories\spAccesories_updateStock.sql" />
-    <Build Include="Stored Procedures\Accesories\spAccesories_delete.sql" />
-    <Build Include="Stored Procedures\Body\spBody_create.sql" />
-    <Build Include="Stored Procedures\Body\spBody_delete.sql" />
-    <Build Include="Stored Procedures\Body\spBody_getall.sql" />
-    <Build Include="Stored Procedures\Body\spBody_getbyId.sql" />
-    <Build Include="Stored Procedures\Body\spBody_updatePrice.sql" />
-    <Build Include="Stored Procedures\Body\spBody_updateStock.sql" />
-    <Build Include="Stored Procedures\Footwear\spFootwear_updateStock.sql" />
-    <Build Include="Stored Procedures\Footwear\spFootwear_updatePrice.sql" />
-    <Build Include="Stored Procedures\Footwear\spFootwear_getbyId.sql" />
-    <Build Include="Stored Procedures\Footwear\spFootwear_getall.sql" />
-    <Build Include="Stored Procedures\Footwear\spFootwear_create.sql" />
-    <Build Include="Stored Procedures\Footwear\spFootwear_delete.sql" />
     <Build Include="Stored Procedures\Users\spUsers_updatePassword.sql" />
     <Build Include="Stored Procedures\Users\spUsers_updateAdmin.sql" />
     <Build Include="Stored Procedures\Users\spUsers_getbyId.sql" />
     <Build Include="Stored Procedures\Users\spUsers_getall.sql" />
     <Build Include="Stored Procedures\Users\spUsers_delete.sql" />
     <Build Include="Stored Procedures\Users\spUsers_create.sql" />
-    <Build Include="Stored Procedures\Rentals\spRentals_getbyId.sql" />
-    <Build Include="Stored Procedures\Rentals\spRentals_getall.sql" />
-    <Build Include="Stored Procedures\Rentals\spRentals_delete.sql" />
-    <Build Include="Stored Procedures\Rentals\spRentals_create.sql" />
     <Build Include="Tables\Brands.sql" />
     <Build Include="Tables\Sizes.sql" />
     <Build Include="Tables\Colors.sql" />
@@ -115,10 +89,11 @@
     <Build Include="Stored Procedures\Generics\spGenerics_getById.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_delete.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateName.sql" />
-    <Build Include="Stored Procedures\Generics\spGenerics_updateInternNumber.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateIntegers.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateStock.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateState.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updatePrice.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateCondition.sql" />
+    <Build Include="Tables\RentableItems.sql" />
   </ItemGroup>
 </Project>

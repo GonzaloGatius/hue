@@ -8,5 +8,5 @@
 	[FootwearId] INT,
 	[Quantity] INT,
 	[Total] INT NOT NULL,
-	FOREIGN KEY (UserId) references Users(Id) on delete set null,
+	FOREIGN KEY (UserId) REFERENCES Users(Id)
 )
