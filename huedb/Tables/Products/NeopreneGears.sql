@@ -9,7 +9,7 @@
     [ColorId] INT FOREIGN KEY REFERENCES Colors(Id),
     [ConditionId] INT,
     [StateId] INT NOT NULL FOREIGN KEY REFERENCES States(Id),
-    [Acquired] DATETIME2,
+    [Acquired] DATE,
     [Price] INT NOT NULL,
     [Notes] NVARCHAR(2000)
 )

@@ -98,6 +98,9 @@
     <Build Include="Stored Procedures\Generics\spGenerics_updateStrings50.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_createString50.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_createIntegers.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateDates.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateNotes.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateModels.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="huedb.refactorlog" />
