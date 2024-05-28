@@ -3,7 +3,7 @@
     [Id] INT NOT NULL PRIMARY KEY,
     [InternNumber] INT NOT NULL ,
     [BrandId] INT  NOT NULL FOREIGN KEY REFERENCES Brands(Id),
-    [Model] NVARCHAR(50),
+    [Model] NVARCHAR(100),
     [Acquired] DATE,
     [System] NVARCHAR(50),
     [SerialNumber] INT,

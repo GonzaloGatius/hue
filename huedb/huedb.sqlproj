@@ -65,13 +65,11 @@
     <Folder Include="Tables\Characteristics" />
     <Folder Include="Tables\Users" />
     <Folder Include="Tables\Products" />
+    <Folder Include="Stored Procedures\Tanks" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Stored Procedures\Users\spUsers_updatePassword.sql" />
     <Build Include="Stored Procedures\Users\spUsers_updateAdmin.sql" />
-    <Build Include="Stored Procedures\Users\spUsers_getbyId.sql" />
-    <Build Include="Stored Procedures\Users\spUsers_getall.sql" />
-    <Build Include="Stored Procedures\Users\spUsers_delete.sql" />
     <Build Include="Stored Procedures\Users\spUsers_create.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_getAll.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_getById.sql" />
@@ -101,6 +99,8 @@
     <Build Include="Stored Procedures\Generics\spGenerics_updateDates.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateNotes.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateModels.sql" />
+    <Build Include="Stored Procedures\Tanks\spTanks_updateIsAluminium.sql" />
+    <Build Include="Stored Procedures\Tanks\spTanks_HTCertificate.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="huedb.refactorlog" />
