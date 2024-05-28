@@ -1,0 +1,177 @@
+QUERYS HUEDB
+
+INSERT INTO brands (Name) VALUES 
+('Pino'),
+('Mares'),
+('Harveys'),
+('7 Mares'),
+('Catalina'),
+('Luxfer'),
+('Krypton'),
+('Mission'),
+('Sea Quest'),
+('Aquatec'),
+('Sub-Gear'),
+('Aqua Lung'),
+('Cressi'),
+('Ist'),
+('Marfed'),
+('Artika'),
+('Super Occhio'),
+('Fun Dive'),
+('Escualos'),
+('U.S. Divers Aquarius'),
+('Mk2 Scubapro'),
+('Subapro'),
+('Sherwood Brut'),
+('Beuchat'),
+('Aqua Lung Calypso'),
+('Mares Rover'),
+('U.S. Divers Conshelf XII'),
+('Sherwood'),
+('Scubapro R095'),
+('Sherwood Magnum'),
+('Scubapro R 295'),
+('Oceanic'),
+('Uwaltec'),
+('Sherwood/Uwatec'),
+('Sherwood Con Brujula'),
+('Manometro Aqualung/ Profundimetro Apex');
+
+
+
+INSERT INTO ProductTypes (Name) VALUES 
+('BCDs'),
+('Fins'),
+('Hoods'),
+('Masks'),
+('NeopreneGears'),
+('Octopus'),
+('OctopusParts'),
+('Products'),
+('Tanks'),
+('Weight'),
+('WeightType');
+
+
+
+INSERT INTO States (Name) VALUES 
+('Disponible'),
+('No disponible'),
+('En revisión')
+-- falta algún estado mas?
+;
+
+
+INSERT INTO Sizes (Name) VALUES 
+('UNICO'),
+('34/36'),
+('34-36'),
+('36-38'),
+('38-40'),
+('40-42'),
+('42-44'),
+('44-46'),
+('G'),
+('G1'),
+('G2'),
+('G3'),
+('G4'),
+('L'),
+('M'),
+('M1'),
+('M2'),
+('M3'),
+('MC'),
+('ML'),
+('P'),
+('P1'),
+('P2'),
+('P3'),
+('S'),
+('SM'),
+('XL'),
+('XS'),
+('XXL'),
+('XG');
+
+
+
+INSERT INTO [dbo].[Brands] ([Name])
+VALUES 
+('OTRA'),
+('Aqua Lung'),
+('Apex'),
+('Artika'),
+('Aquatec'),
+('Beuchat'),
+('Beuchat VS 8'),
+('Bodoque'),
+('Catalina'),
+('Cressi'),
+('DRY'),
+('Escualos'),
+('Fun Dive'),
+('Genérica'),
+('Harveys'),
+('IST'),
+('Krypton'),
+('Luxfer'),
+('Mares'),
+('Mares Rover'),
+('Manometro Aqualung/ Profundimetro Apex'),
+('Marfed'),
+('Mission'),
+('MK2 Scubapro'),
+('Oceanic'),
+('Pino'),
+('Sea Quest'),
+('Sherwood'),
+('Sherwood Brut'),
+('Sherwood Magnum'),
+('Sherwood con brujula'),
+('Sherwood/Uwatec'),
+('S/Marca'),
+('Sub - Gear'),
+('Super Occhio'),
+('Ulices'),
+('U.S. Divers Aquarius'),
+('U.S. Divers Conshelf XII'),
+('Uwatec');
+
+
+INSERT INTO [dbo].[States] ([Name])
+VALUES 
+('OK'),
+('NUEVO'),
+('Baja'),
+('Bueno - Rodilla Reparada'),
+('Bueno/Reparado'),
+('Bueno'),
+('Chaqueta Deteriorada'),
+('Deteriorado'),
+('Excelente'),
+('Fuera de Servicio'),
+('Faltantes'),
+('Gastado'),
+('Maniqui'),
+('Muy Bueno'),
+('Muy Deteriorado'),
+('Muy Usado'),
+('Pierna Rota - Pantalon Deteriorado'),
+('Regular');
+
+
+
+---------------------------------------------------------------------------------------------
+
+MODELOS:
+
+Otro
+Polar Pro
+Rover
+Tilos
+Wave
+Sub 3
+Antenal
+Rondine
