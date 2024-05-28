@@ -4,17 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace libraryhue.Models
+namespace libraryhue.Models.Products
 {
-    public class BodyModel
+    public class WeightModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int TypeId { get; set; }
         public int Stock { get; set; }
+        public int Weight { get; set; }
         public int Price { get; set; }
-        public string Size { get; set; }
-        public int Mm { get; set; }
-        public string Brand { get; set; }
-        public string Branda { get; set; }
     }
 }

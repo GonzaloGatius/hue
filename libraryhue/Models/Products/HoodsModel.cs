@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace libraryhue.Models
+namespace libraryhue.Models.Products
 {
-    public class FootwearModel
+    public class HoodsModel : Products
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int Stock { get; set; }
-        public int Price { get; set; }
-        public int Size { get; set; }
-        public string Brand { get; set; }
+        public int ColorId { get; set; }
     }
+
 }

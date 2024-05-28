@@ -6,7 +6,7 @@
     [Stock] INT NOT NULL,
     [SizeId] INT NOT NULL FOREIGN KEY REFERENCES Sizes(Id),
     [BrandId] INT  NOT NULL FOREIGN KEY REFERENCES Brands(Id),
-    [Color] INT  NOT NULL FOREIGN KEY REFERENCES Colors(Id),
+    [ColorId] INT  NOT NULL FOREIGN KEY REFERENCES Colors(Id),
     [Acquired] DATE,
     [Condition] INT NOT NULL ,
     [StateId] INT NOT NULL FOREIGN KEY REFERENCES States(Id),
