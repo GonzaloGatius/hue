@@ -140,26 +140,7 @@ VALUES
 ('Uwatec');
 
 
-INSERT INTO [dbo].[States] ([Name])
-VALUES 
-('OK'),
-('NUEVO'),
-('Baja'),
-('Bueno - Rodilla Reparada'),
-('Bueno/Reparado'),
-('Bueno'),
-('Chaqueta Deteriorada'),
-('Deteriorado'),
-('Excelente'),
-('Fuera de Servicio'),
-('Faltantes'),
-('Gastado'),
-('Maniqui'),
-('Muy Bueno'),
-('Muy Deteriorado'),
-('Muy Usado'),
-('Pierna Rota - Pantalon Deteriorado'),
-('Regular');
+
 
 
 
