@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace libraryhue.Models.Products
+namespace libraryhue.Models.Characteristics
 {
     public class OctopusPartsModel
     {

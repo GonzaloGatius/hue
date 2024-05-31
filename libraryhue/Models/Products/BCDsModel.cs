@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Models.Products
 {
-    public class BCDsModel : Products
+    public class BCDsModel : ProductsModel
     {
         public string Valves { get; set; }
-        public string Power { get; set; }
+        public string? Power { get; set; }
     }
 }

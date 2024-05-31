@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Models.Products
 {
-    public class HoodsModel : Products
+    public class HoodsModel : ProductsModel
     {
-        public string Name { get; set; }
-        public int Stock { get; set; }
-        public int ColorId { get; set; }
+        public int? ColorId { get; set; }
     }
 
 }

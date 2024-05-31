@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Models.Products
 {
-    public class OctopusModel : Products
+    public class OctopusModel : ProductsModel
     {
         public string System { get; set; }
         public int? SerialNumber { get; set; }

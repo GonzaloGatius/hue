@@ -16,7 +16,7 @@ namespace libraryhue.Models.Products
         public DateTime? Acquired { get; set; }
         public int? Condition { get; set; }
         public int Price { get; set; }
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
     }
 
 }

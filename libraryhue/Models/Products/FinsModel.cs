@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Models.Products
 {
-    public class FinsModel : Products
+    public class FinsModel : ProductsModel
     {
-        public int ColorId { get; set; }
+        public int? ColorId { get; set; }
     }
 }
