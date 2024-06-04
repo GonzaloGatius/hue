@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[RentalCart]
+﻿CREATE TABLE [dbo].[RentalCarts]
 (
 	[Id] INT NOT NULL PRIMARY KEY,
 	[RentalId] INT NOT NULL FOREIGN KEY REFERENCES Rentals(Id),
