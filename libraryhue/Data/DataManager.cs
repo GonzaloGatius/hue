@@ -20,7 +20,7 @@ namespace libraryhue.Data
             this.connectionStringData = connectionStringData;
         }
 
-        //Basic CRUD.
+//Basic CRUD.
         public async Task<List<T>> GetAll<T>() where T : class
         {
             return await dataAccess.LoadData<T, dynamic>("spGenerics_getAll", new { @tableName = tableName }, connectionStringData.ConnectionStringName);
@@ -43,6 +43,31 @@ namespace libraryhue.Data
         {
             await dataAccess.SaveData<dynamic>("spGenerics_createWithName50", new {@name = name, @tableName = tableName }, connectionStringData.ConnectionStringName);
 
+        }
+// UPDATES
+        public async Task UpdateDate(DateTime newDate, string tableColumn)
+        {
+            await dataAccess.SaveData<dynamic>("spGenerics_updateDates", new { @newDate = newDate, @tableName = tableName, @tableColumn = tableColumn}, connectionStringData.ConnectionStringName);
+        }
+
+        public async Task UpdateInteger(int @newInt, string tableColumn)
+        {
+            await dataAccess.SaveData<dynamic>("spGenerics_updateIntegers", new { @newInt = newInt, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
+        }
+
+        public async Task UpdateModel(string newModel, string tableColumn)
+        {
+            await dataAccess.SaveData<dynamic>("spGenerics_updateModels", new { @newModel = newModel, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
+        }
+
+        public async Task UpdateNote(string newNote, string tableColumn)
+        {
+            await dataAccess.SaveData<dynamic>("spGenerics_updateNotes", new { @newNote = newNote, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
+        }
+
+        public async Task UpdateString(string newString, string tableColumn)
+        {
+            await dataAccess.SaveData<dynamic>("spGenerics_updateStrings", new { @newString = newString, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
         }
     }
 }
