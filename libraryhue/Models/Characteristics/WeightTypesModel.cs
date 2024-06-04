@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Models.Characteristics
 {
-    public class WeightTypeModel
+    public class WeightTypesModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
