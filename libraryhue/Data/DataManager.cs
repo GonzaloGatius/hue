@@ -20,6 +20,7 @@ namespace libraryhue.Data
             this.connectionStringData = connectionStringData;
         }
 
+        //Basic CRUD.
         public async Task<List<T>> GetAll<T>() where T : class
         {
             return await dataAccess.LoadData<T, dynamic>("spGenerics_getAll", new { @tableName = tableName }, connectionStringData.ConnectionStringName);
@@ -38,9 +39,9 @@ namespace libraryhue.Data
             await dataAccess.SaveData<dynamic>("spGenerics_delete", new { @Id = Id, @tableName = tableName }, connectionStringData.ConnectionStringName);
 
         }
-        public async Task CreateIntegers(int newInt)
+        public async Task CreateStrings50(string name, string tableName)
         {
-            await dataAccess.SaveData<dynamic>("spGenerics_createIntegers", new {@newInt = newInt, @tableName = tableName }, connectionStringData.ConnectionStringName);
+            await dataAccess.SaveData<dynamic>("spGenerics_createWithName50", new {@name = name, @tableName = tableName }, connectionStringData.ConnectionStringName);
 
         }
     }
