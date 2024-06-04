@@ -47,7 +47,7 @@ namespace libraryhue.Data
             await dataAccess.SaveData<dynamic>("spGenerics_createWithName50", new { @name = name, @tableName = tableName }, connectionStringData.ConnectionStringName);
 
         }
-        public async Task<int> CreateObject(object _object)
+        public virtual async Task<int> CreateObject(object _object)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.AddDynamicParams(_object);
