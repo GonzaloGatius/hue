@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Data
 {
-    public class TanksData : DataManager
+    public class TanksData : DataManager, ITanksData
     {
         private readonly IDataAccess dataAccess;
         private readonly ConnectionStringData connectionStringData;
@@ -20,5 +20,10 @@ namespace libraryhue.Data
             this.dataAccess = dataAccess;
             this.connectionStringData = connectionStringData;
         }
+    }
+
+    public interface ITanksData
+    {
+
     }
 }

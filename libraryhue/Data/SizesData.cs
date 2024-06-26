@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Data
 {
-    public class SizesData : DataManager
+    public class SizesData : DataManager, ISizesData
     {
         private readonly IDataAccess dataAccess;
         private readonly ConnectionStringData connectionStringData;
@@ -22,6 +22,10 @@ namespace libraryhue.Data
             this.dataAccess = dataAccess;
             this.connectionStringData = connectionStringData;
         }
-        
+    }
+
+    public interface ISizesData
+    {
+
     }
 }

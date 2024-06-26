@@ -1,4 +1,5 @@
-﻿using libraryhue.DB;
+﻿using libraryhue.Data;
+using libraryhue.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Data
 {
-    public class FinsData : DataManager
+    public class FinsData : DataManager, IFinsData
     {
         private readonly IDataAccess dataAccess;
         private readonly ConnectionStringData connectionStringData;
@@ -21,4 +22,9 @@ namespace libraryhue.Data
             this.connectionStringData = connectionStringData;
         }
     }
+    public interface IFinsData
+    {
+
+    }
 }
+

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Data
 {
-    public class HoodsData : DataManager
+    public class HoodsData : DataManager, IHoodsData
     {
         private readonly IDataAccess dataAccess;
         private readonly ConnectionStringData connectionStringData;
@@ -20,5 +20,10 @@ namespace libraryhue.Data
             this.dataAccess = dataAccess;
             this.connectionStringData = connectionStringData;
         }
+    }
+
+    public interface IHoodsData
+    {
+
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Data
 {
-    public class ProductTypesData : DataManager
+    public class ProductTypesData : DataManager, IProductTypesData
     {
         private readonly IDataAccess dataAccess;
         private readonly ConnectionStringData connectionStringData;
@@ -22,6 +22,11 @@ namespace libraryhue.Data
             this.dataAccess = dataAccess;
             this.connectionStringData = connectionStringData;
         }
-        
     }
+
+    public interface IProductTypesData
+    {
+
+    }
+
 }

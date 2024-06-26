@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Data
 {
-    public class OctopusData : DataManager
+    public class OctopusData : DataManager, IOctopusData
     {
         private readonly IDataAccess dataAccess;
         private readonly ConnectionStringData connectionStringData;
@@ -20,5 +20,10 @@ namespace libraryhue.Data
             this.dataAccess = dataAccess;
             this.connectionStringData = connectionStringData;
         }
+    }
+
+    public interface IOctopusData
+    {
+
     }
 }

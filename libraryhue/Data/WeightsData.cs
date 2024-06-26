@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Data
 {
-    public class WeightsData : DataManager
+    public class WeightsData : DataManager, IWeightsData
     {
         private readonly IDataAccess dataAccess;
         private readonly ConnectionStringData connectionStringData;
@@ -21,4 +21,10 @@ namespace libraryhue.Data
             this.connectionStringData = connectionStringData;
         }
     }
+
+    public interface IWeightsData
+    {
+
+    }
+    
 }
