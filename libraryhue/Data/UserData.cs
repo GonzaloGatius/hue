@@ -22,6 +22,5 @@ namespace libraryhue.Data
             this.connectionStringData = connectionStringData;
         }
 
-        
     }
 }

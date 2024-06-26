@@ -54,8 +54,8 @@ namespace libraryhue.Data
             parameters.Add("@Id", DbType.Int32, direction: ParameterDirection.Output);
 
             return await dataAccess.SaveData<DynamicParameters>(spCreateName, parameters, connectionStringData.ConnectionStringName);
-
         }
+
         // UPDATES
         public async Task UpdateDate(DateTime newDate, string tableColumn)
         {

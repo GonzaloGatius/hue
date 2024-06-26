@@ -22,15 +22,6 @@ namespace libraryhue.Data
             this.dataAccess = dataAccess;
             this.connectionStringData = connectionStringData;
         }
-        public override async Task<int> CreateObject(object _object)
-        {
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.AddDynamicParams(_object);
-            parameters.Add("@tableName", tableName, DbType.String, direction: ParameterDirection.Input);
-            parameters.Add("@Id", DbType.Int32, direction: ParameterDirection.Output);
-
-            return await dataAccess.SaveData<DynamicParameters>(spCreateName, parameters, connectionStringData.ConnectionStringName);
-
-        }
+        
     }
 }
