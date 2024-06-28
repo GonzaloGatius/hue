@@ -24,9 +24,9 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IProductTypesData
+    public interface IProductTypesData : IDataManager
     {
-
+        
     }
 
 }

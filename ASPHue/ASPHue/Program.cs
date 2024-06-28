@@ -1,6 +1,7 @@
 using libraryhue.Data;
 using libraryhue.DB;
 using libraryhue;
+using ASPHue.HelperMethods.SelectLists_and_Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,7 @@ builder.Services.AddSingleton<IStatesData, StatesData>();
 builder.Services.AddSingleton<ITanksData, TanksData>();
 builder.Services.AddSingleton<IWeightsData, WeightsData>();
 builder.Services.AddSingleton<IWeightTypesData, WeightTypesData>();
+builder.Services.AddSingleton<SelectListsManager, SelectListsManager>();
 
 var app = builder.Build();
 

@@ -1,0 +1,7 @@
+﻿@page
+@model ASPHue.Pages.Rents.ProductsModel
+@{
+    ViewData["Title"] = "Alquiler de Equipos";
+}
+
+<select asp-for="ProductTypeSelected" asp-items="Model.productTypesModels"></select>

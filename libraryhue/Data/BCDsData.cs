@@ -22,8 +22,8 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IBCDsData
+    public interface IBCDsData : IDataManager
     {
-
+        
     }
 }
