@@ -33,7 +33,7 @@ namespace ASPHue.Pages.Rents
         {
             var productTypes = await productTypesData.GetAll<ProductTypesModel>();
 
-            selectListsManager.FillProductTypesSelectList(productTypesModels, productTypes);
+            productTypesModels = selectListsManager.FillProductTypesSelectList(productTypes);
         }
 
         private static void CallData() { }

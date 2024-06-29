@@ -10,7 +10,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddSingleton(new ConnectionStringData
 {
-    ConnectionStringName = "Default;"
+    ConnectionStringName = "Default"
 });
 builder.Services.AddSingleton<IDataAccess, SqlDB>();
 
