@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ASPHue.HelperMethods.SelectLists_and_Filters
 {
-    public class SelectListsManager
+    public static class SelectListsManager
     {
 
 
-        public List<SelectListItem> FillProductTypesSelectList(List<ProductTypesModel> productTypes) 
+        public static List<SelectListItem> FillProductTypesSelectList(List<ProductTypesModel> productTypes) 
         {
             List<SelectListItem> list = new List<SelectListItem>();
 

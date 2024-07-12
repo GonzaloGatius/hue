@@ -15,25 +15,23 @@ namespace ASPHue.Pages.Rents
         private readonly IStatesData statesData;
         private readonly IProductTypesData productTypesData;
         private readonly ConnectionStringData connectionStringData;
-        private readonly SelectListsManager selectListsManager;
 
         [BindProperty]
         public int ProductTypeSelected { get; set; }
 
         public List<SelectListItem> productTypesModels { get; set; }
 
-        public ProductsModel(IStatesData statesData, IProductTypesData productTypesData, ConnectionStringData connectionStringData, SelectListsManager selectListsManager)
+        public ProductsModel(IStatesData statesData, IProductTypesData productTypesData, ConnectionStringData connectionStringData)
         {
             this.statesData = statesData;
             this.productTypesData = productTypesData;
             this.connectionStringData = connectionStringData;
-            this.selectListsManager = selectListsManager;
         }
         public async Task OnGet()
         {
             var productTypes = await productTypesData.GetAll<ProductTypesModel>();
 
-            productTypesModels = selectListsManager.FillProductTypesSelectList(productTypes);
+            productTypesModels = SelectListsManager.FillProductTypesSelectList(productTypes);
         }
 
         private static void CallData() { }
