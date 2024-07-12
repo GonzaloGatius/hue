@@ -32,7 +32,6 @@ builder.Services.AddSingleton<IStatesData, StatesData>();
 builder.Services.AddSingleton<ITanksData, TanksData>();
 builder.Services.AddSingleton<IWeightsData, WeightsData>();
 builder.Services.AddSingleton<IWeightTypesData, WeightTypesData>();
-builder.Services.AddSingleton<SelectListsManager, SelectListsManager>();
 
 var app = builder.Build();
 

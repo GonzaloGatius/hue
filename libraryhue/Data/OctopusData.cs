@@ -22,7 +22,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IOctopusData
+    public interface IOctopusData : IDataManager
     {
 
     }

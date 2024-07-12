@@ -1,7 +1,14 @@
 ﻿@page
-@model ASPHue.Pages.Rents.ProductsModel
+@model ASPHue.Pages.Rents.ProductsListModel
 @{
     ViewData["Title"] = "Alquiler de Equipos";
 }
-
-<select asp-for="ProductTypeSelected" asp-items="Model.productTypesModels"></select>
+<form method="get">
+    <select asp-for="ProductTypeSelected" asp-items="Model.productTypesSelect"></select>
+    <input type="submit" class="btn" />
+</form>
+@foreach(var product in Model.products)
+{
+    <h4>@product.Name</h4>
+    <h4>@product.Price</h4>
+}

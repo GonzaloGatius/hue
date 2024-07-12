@@ -22,7 +22,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IHoodsData
+    public interface IHoodsData : IDataManager
     {
 
     }

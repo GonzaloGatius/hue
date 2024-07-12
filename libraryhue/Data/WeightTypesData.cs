@@ -24,7 +24,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IWeightTypesData
+    public interface IWeightTypesData : IDataManager
     {
 
     }

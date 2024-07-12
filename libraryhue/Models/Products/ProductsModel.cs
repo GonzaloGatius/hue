@@ -9,6 +9,7 @@ namespace libraryhue.Models.Products
     public class ProductsModel
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public int InternNumber { get; set; }
         public int? BrandId { get; set; }
         public string? Model { get; set; }

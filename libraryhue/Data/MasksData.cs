@@ -22,7 +22,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IMasksData
+    public interface IMasksData : IDataManager
     {
 
     }

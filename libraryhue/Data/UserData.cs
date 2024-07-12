@@ -23,7 +23,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IUserData
+    public interface IUserData : IDataManager
     {
 
     }

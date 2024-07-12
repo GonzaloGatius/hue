@@ -24,7 +24,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IBrandsData
+    public interface IBrandsData : IDataManager
     {
 
     }

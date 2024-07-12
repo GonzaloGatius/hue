@@ -22,7 +22,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface ITanksData
+    public interface ITanksData : IDataManager
     {
 
     }

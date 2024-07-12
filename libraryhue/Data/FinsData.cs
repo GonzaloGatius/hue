@@ -22,7 +22,7 @@ namespace libraryhue.Data
             this.connectionStringData = connectionStringData;
         }
     }
-    public interface IFinsData
+    public interface IFinsData : IDataManager
     {
 
     }

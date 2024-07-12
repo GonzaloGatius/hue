@@ -24,7 +24,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IStatesData
+    public interface IStatesData : IDataManager
     {
 
     }

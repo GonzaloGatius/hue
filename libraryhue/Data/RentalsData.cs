@@ -22,7 +22,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IRentalsData
+    public interface IRentalsData : IDataManager
     {
 
     }

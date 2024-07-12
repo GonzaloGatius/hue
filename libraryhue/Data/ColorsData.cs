@@ -24,7 +24,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface IColorsData
+    public interface IColorsData : IDataManager
     {
 
     }

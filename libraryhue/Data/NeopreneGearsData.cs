@@ -22,7 +22,7 @@ namespace libraryhue.Data
         }
     }
 
-    public interface INeopreneGearsData
+    public interface INeopreneGearsData : IDataManager
     {
 
     }
