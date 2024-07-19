@@ -67,6 +67,7 @@
     <Folder Include="Tables\Products" />
     <Folder Include="Stored Procedures\Tanks" />
     <Folder Include="Stored Procedures\spCreate" />
+    <Folder Include="Stored Procedures\ProductTypes" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Stored Procedures\Users\spUsers_updatePassword.sql" />
@@ -111,6 +112,7 @@
     <Build Include="Tables\Characteristics\WeightTypes.sql" />
     <Build Include="Stored Procedures\spCreate\spRentals_create.sql" />
     <Build Include="Stored Procedures\spCreate\spRentalCarts_create.sql" />
+    <Build Include="Stored Procedures\ProductTypes\spProductTypes_GetNameById.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="huedb.refactorlog" />

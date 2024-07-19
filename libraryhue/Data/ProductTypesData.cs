@@ -22,11 +22,17 @@ namespace libraryhue.Data
             this.dataAccess = dataAccess;
             this.connectionStringData = connectionStringData;
         }
+        public async Task<T> GetProductNameById<T>(int Id) 
+        {
+            var list = await dataAccess.LoadData<T, dynamic>("spProductTypes_GetNameById", new { @Id = Id}, connectionStringData.ConnectionStringName);
+
+            return list.FirstOrDefault();
+        }
     }
 
     public interface IProductTypesData : IDataManager
     {
-        
+        Task<T> GetProductNameById<T>(int Id);
     }
 
 }

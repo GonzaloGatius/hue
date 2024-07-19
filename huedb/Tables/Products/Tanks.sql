@@ -9,7 +9,7 @@
     [TankValves] NVARCHAR(50),
     [ColorId] INT FOREIGN KEY REFERENCES Colors(Id),
     [Capacity] INT,
-    [Presure] INT,
+    [Pressure] INT,
     [HT] DATE NOT NULL, --hydraulic test
     [HTCertificate] BIT,
     [Condition] INT,

@@ -1,4 +1,5 @@
 ﻿@page
+@using ASPHue.HelperMethods.TableManagement
 @model ASPHue.Pages.Rents.ProductsListModel
 @{
     ViewData["Title"] = "Alquiler de Equipos";
@@ -7,8 +8,29 @@
     <select asp-for="ProductTypeSelected" asp-items="Model.productTypesSelect"></select>
     <input type="submit" class="btn" />
 </form>
+<table>
+    <thead>
+        <th>Id</th> @*SoloAdmin*@
+
+        @if(await Model.CheckMethod(Model.ProductTypeSelected, "Nombre"))
+        {
+            <th>Nombre</th>
+        }
+
+        <th>Nro. Interno</th>
+        <th>State</th>
+        <th>Precio</th>
+        <th>Condición</th> @*SoloAdmin*@
+        <th>Notas</th> @*SoloAdmin*@
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
 @foreach(var product in Model.products)
 {
     <h4>@product.Name</h4>
     <h4>@product.Price</h4>
 }
+

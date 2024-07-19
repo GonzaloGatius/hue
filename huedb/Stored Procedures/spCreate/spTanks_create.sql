@@ -22,7 +22,7 @@ BEGIN
     (
         [InternNumber], [Name], [Stock], [IsAluminium], 
         [SerialNumber], [TankValves], [ColorId], [Capacity], 
-        [Presure], [HT], [HTCertificate], [Condition], 
+        [Pressure], [HT], [HTCertificate], [Condition], 
         [StateId], [Acquired], [Price], [Notes]
     )
     VALUES 

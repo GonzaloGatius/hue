@@ -9,6 +9,8 @@ using ASPHue.HelperMethods.SelectLists_and_Filters;
 using libraryhue.Models.Products;
 using System.Runtime.InteropServices.Marshalling;
 using System.ComponentModel;
+using ASPHue.HelperMethods.TableManagement;
+using System.Reflection;
 
 namespace ASPHue.Pages.Rents
 {
@@ -28,7 +30,7 @@ namespace ASPHue.Pages.Rents
         private readonly INeopreneGearsData neopreneGearsData;
 
         [BindProperty(SupportsGet = true)]
-        public int ProductTypeSelected { get; set; } = 4;
+        public int ProductTypeSelected { get; set; } = 1;
 
         public List<SelectListItem> productTypesSelect { get; set; }
         public List<ProductsModel> products { get; set; }
@@ -57,30 +59,51 @@ namespace ASPHue.Pages.Rents
 
         private async Task<List<ProductsModel>> GetProducts()
         {
-            switch (ProductTypeSelected)
+            string name = await GetSelectedProductName(ProductTypeSelected);
+            switch (name)
             {
-                case 1:
-                    return await bcdsData.GetAll<ProductsModel>();
-                case 2:
-                    return await finsData.GetAll<ProductsModel>();
-                case 3:
-                    return await hoodsData.GetAll<ProductsModel>();
-                case 4:
-                    return await masksData.GetAll<ProductsModel>();
-                case 5:
+                case "Neoprene":
                     return await neopreneGearsData.GetAll<ProductsModel>();
-                case 6:
+                case "BCDs":
+                    return await bcdsData.GetAll<ProductsModel>();
+                case "Hoods":
+                    return await hoodsData.GetAll<ProductsModel>();
+                case "Masks":
+                    return await masksData.GetAll<ProductsModel>();
+                case "Octopus":
                     return await octopusData.GetAll<ProductsModel>();
-                case 7:
+                case "Tanks":
                     return await tanksData.GetAll<ProductsModel>();
-                case 8:
+                case "Fins":
+                    return await finsData.GetAll<ProductsModel>();
+                case "Weights":
                     return await weightData.GetAll<ProductsModel>();
                 default: return null;
-
-
             }
+        }
 
+        public async Task<string> GetSelectedProductName(int id)
+        {
+            return await productTypesData.GetProductNameById<string>(id);
+        }
 
+        public async Task<bool> CheckMethod(int id, string columnName)
+        {
+            switch (columnName)
+            {
+                case "Name":
+                    return ColumnChecker.CheckIfName(await GetSelectedProductName(id));
+                case "Model":
+                    return ColumnChecker.CheckIfModel(await GetSelectedProductName(id));
+                case "Brand":
+                    return ColumnChecker.CheckIfBrand(await GetSelectedProductName(id));
+                case "Color":
+                    return ColumnChecker.CheckIfColor(await GetSelectedProductName(id));
+                case "Size":
+                    return ColumnChecker.CheckIfSize(await GetSelectedProductName(id));
+                case "":
+                    return ColumnChecker.CheckIfBrand(await GetSelectedProductName(id));
+            }
         }
     }
 }
