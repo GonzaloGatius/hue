@@ -1,11 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spFins_create]
     @InternNumber INT,
-    @BrandId INT,
+    @Brand NVARCHAR(50),
     @Model NVARCHAR(100),
-    @SizeId INT,
+    @Size NVARCHAR(50),
     @Acquired DATE,
     @Condition INT,
-    @ColorId INT,
+    @Color NVARCHAR(50),
     @StateId INT,
     @Price INT,
     @Notes NVARCHAR(2000),
@@ -14,14 +14,14 @@ AS
 BEGIN
     INSERT INTO [dbo].[Fins] 
     (
-        [InternNumber], [BrandId], [Model], [SizeId], 
-        [Acquired], [Condition], [ColorId], [StateId], 
+        [InternNumber], [Brand], [Model], [Size], 
+        [Acquired], [Condition], [Color], [StateId], 
         [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @BrandId, @Model, @SizeId, 
-        @Acquired, @Condition, @ColorId, @StateId, 
+        @InternNumber, @Brand, @Model, @Size, 
+        @Acquired, @Condition, @Color, @StateId, 
         @Price, @Notes
     );
 

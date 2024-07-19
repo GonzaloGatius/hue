@@ -1,29 +1,30 @@
-﻿CREATE PROCEDURE [dbo].[spOctopus_create]
+﻿CREATE PROCEDURE [dbo].[spOctopus_create] --Revisar el quilombo de las partes, la rpmqlrmvp. 
     @InternNumber INT,
-    @BrandId INT,
+    @Brand NVARCHAR(50),
     @Model NVARCHAR(100),
+    @Piece NVARCHAR(100),
     @Acquired DATE,
     @System NVARCHAR(50),
     @SerialNumber INT,
-    @Condition INT,
-    @PartId INT,
+    @Condition NVARCHAR(50),
     @StateId INT,
     @Price INT,
     @Notes NVARCHAR(2000),
+    @Composition NVARCHAR(2000),
     @Id INT OUTPUT
 AS
 BEGIN
     INSERT INTO [dbo].[Octopus] 
     (
-        [InternNumber], [BrandId], [Model], [Acquired], 
-        [System], [SerialNumber], [Condition], [PartId], 
-        [StateId], [Price], [Notes]
+        [InternNumber], [Brand], [Model], [Acquired],  
+        [System], [SerialNumber], [Condition],  
+        [StateId], [Price], [Notes], [Composition]
     )
     VALUES 
     (
-        @InternNumber, @BrandId, @Model, @Acquired, 
+        @InternNumber, @Brand, @Model, @Acquired, 
         @System, @SerialNumber, @Condition, @PartId, 
-        @StateId, @Price, @Notes
+        @StateId, @Price, @Notes, @Composition
     );
 
     SET @Id = SCOPE_IDENTITY();

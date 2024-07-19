@@ -1,12 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[spMasks_create]
     @InternNumber INT,
-    @BrandId INT,
+    @Brand NVARCHAR(50),
     @Model NVARCHAR(100),
-    @SizeId INT,
+    @Size NVARCHAR(50),
     @Acquired DATE,
     @Condition INT,
     @StateId INT,
-    @ColorId INT,
+    @Color NVARCHAR(50),
     @Price INT,
     @Notes NVARCHAR(2000),
     @Id INT OUTPUT
@@ -14,14 +14,14 @@ AS
 BEGIN
     INSERT INTO [dbo].[Masks] 
     (
-        [InternNumber], [BrandId], [Model], [SizeId], 
-        [Acquired], [Condition], [StateId], [ColorId], 
+        [InternNumber], [Brand], [Model], [Size], 
+        [Acquired], [Condition], [StateId], [Color], 
         [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @BrandId, @Model, @SizeId, 
-        @Acquired, @Condition, @StateId, @ColorId, 
+        @InternNumber, @Brand, @Model, @Size, 
+        @Acquired, @Condition, @StateId, @Color, 
         @Price, @Notes
     );
 

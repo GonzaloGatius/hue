@@ -79,10 +79,7 @@
     <Build Include="Stored Procedures\Generics\spGenerics_updateIntegers.sql" />
     <Build Include="Tables\Rentals\Rentals.sql" />
     <Build Include="Tables\Rentals\RentalCarts.sql" />
-    <Build Include="Tables\Characteristics\Brands.sql" />
-    <Build Include="Tables\Characteristics\Colors.sql" />
     <Build Include="Tables\Characteristics\ProductTypes.sql" />
-    <Build Include="Tables\Characteristics\Sizes.sql" />
     <Build Include="Tables\Characteristics\States.sql" />
     <Build Include="Tables\Products\BCDs.sql" />
     <Build Include="Tables\Products\Fins.sql" />
@@ -91,12 +88,11 @@
     <Build Include="Tables\Products\NeopreneGears.sql" />
     <Build Include="Tables\Products\Octopus.sql" />
     <Build Include="Tables\Products\Tanks.sql" />
-    <Build Include="Tables\Products\Weights.sql" />
     <Build Include="Tables\Users\Users.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateStrings50.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_createWithName50.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateDates.sql" />
-    <Build Include="Stored Procedures\Generics\spGenerics_updateNotes.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateStrings2000.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateModels.sql" />
     <Build Include="Stored Procedures\Tanks\spTanks_updateIsAluminium.sql" />
     <Build Include="Stored Procedures\Tanks\spTanks_HTCertificate.sql" />
@@ -106,13 +102,13 @@
     <Build Include="Stored Procedures\spCreate\spMasks_create.sql" />
     <Build Include="Stored Procedures\spCreate\spNeopreneGears_create.sql" />
     <Build Include="Stored Procedures\spCreate\spOctopus_create.sql" />
-    <Build Include="Tables\Characteristics\OctopusParts.sql" />
     <Build Include="Stored Procedures\spCreate\spTanks_create.sql" />
     <Build Include="Stored Procedures\spCreate\spWeights_create.sql" />
-    <Build Include="Tables\Characteristics\WeightTypes.sql" />
     <Build Include="Stored Procedures\spCreate\spRentals_create.sql" />
     <Build Include="Stored Procedures\spCreate\spRentalCarts_create.sql" />
     <Build Include="Stored Procedures\ProductTypes\spProductTypes_GetNameById.sql" />
+    <Build Include="Tables\Rentals\Weights.sql" />
+    <Build Include="Stored Procedures\Generics\spGenerics_updateStrings100.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="huedb.refactorlog" />

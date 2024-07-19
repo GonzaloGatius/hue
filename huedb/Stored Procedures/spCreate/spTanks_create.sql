@@ -5,7 +5,7 @@
     @IsAluminium BIT,
     @SerialNumber INT,
     @TankValves NVARCHAR(50),
-    @ColorId INT,
+    @Color NVARCHAR(50),
     @Capacity INT,
     @Presure INT,
     @HT DATE,
@@ -21,14 +21,14 @@ BEGIN
     INSERT INTO [dbo].[Tanks] 
     (
         [InternNumber], [Name], [Stock], [IsAluminium], 
-        [SerialNumber], [TankValves], [ColorId], [Capacity], 
+        [SerialNumber], [TankValves], Color, [Capacity], 
         [Pressure], [HT], [HTCertificate], [Condition], 
         [StateId], [Acquired], [Price], [Notes]
     )
     VALUES 
     (
         @InternNumber, @Name, @Stock, @IsAluminium, 
-        @SerialNumber, @TankValves, @ColorId, @Capacity, 
+        @SerialNumber, @TankValves, @Color, @Capacity, 
         @Presure, @HT, @HTCertificate, @Condition, 
         @StateId, @Acquired, @Price, @Notes
     );

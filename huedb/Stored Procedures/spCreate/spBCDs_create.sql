@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spBCDs_create]
     @InternNumber INT,
-    @BrandId INT,
+    @Brand NVARCHAR(50),
     @Model NVARCHAR(100),
-    @SizeId INT,
+    @Size NVARCHAR(50),
     @Valves NVARCHAR(50),
     @Power NVARCHAR(50),
     @Acquired DATE,
@@ -15,13 +15,13 @@ AS
 BEGIN
     INSERT INTO [dbo].[BCDs] 
     (
-        [InternNumber], [BrandId], [Model], [SizeId], 
+        [InternNumber], [Brand], [Model], [Size], 
         [Valves], [Power], [Acquired], [Condition], 
         [StateId], [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @BrandId, @Model, @SizeId, 
+        @InternNumber, @Brand, @Model, @Size, 
         @Valves, @Power, @Acquired, @Condition, 
         @StateId, @Price, @Notes
     );

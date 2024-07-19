@@ -1,10 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spHoods_create]
     @InternNumber INT,
-    @Name NVARCHAR(50),
     @Stock INT,
-    @SizeId INT,
-    @BrandId INT,
-    @ColorId INT,
+    @Size NVARCHAR(50),
+    @Brand NVARCHAR(50),
+    @Color NVARCHAR(50),
     @Acquired DATE,
     @Condition INT,
     @StateId INT,
@@ -15,14 +14,14 @@ AS
 BEGIN
     INSERT INTO [dbo].[Hoods] 
     (
-        [InternNumber], [Name], [Stock], [SizeId], 
-        [BrandId], [ColorId], [Acquired], [Condition], 
+        [InternNumber], [Stock], [Size], 
+        [Brand], [Color], [Acquired], [Condition], 
         [StateId], [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @Name, @Stock, @SizeId, 
-        @BrandId, @ColorId, @Acquired, @Condition, 
+        @InternNumber, @Stock, @Size, 
+        @Brand, @Color, @Acquired, @Condition, 
         @StateId, @Price, @Notes
     );
 
