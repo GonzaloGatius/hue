@@ -2,7 +2,7 @@
     @InternNumber INT,
     @Brand NVARCHAR(50),
     @Model NVARCHAR(100),
-    @Size NVARCHAR(50),
+    @SizeId INT,
     @Acquired DATE,
     @Condition INT,
     @Color NVARCHAR(50),
@@ -14,13 +14,13 @@ AS
 BEGIN
     INSERT INTO [dbo].[Fins] 
     (
-        [InternNumber], [Brand], [Model], [Size], 
+        [InternNumber], [Brand], [Model], [SizeId], 
         [Acquired], [Condition], [Color], [StateId], 
         [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @Brand, @Model, @Size, 
+        @InternNumber, @Brand, @Model, @SizeId, 
         @Acquired, @Condition, @Color, @StateId, 
         @Price, @Notes
     );

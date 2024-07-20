@@ -5,7 +5,6 @@
     [Brand] NVARCHAR(50),
     [Model] NVARCHAR(100),
     [Acquired] DATE,
-    [System] NVARCHAR(50),
     [SerialNumber] INT,
     [Condition] NVARCHAR(100),
     [StateId] INT NOT NULL FOREIGN KEY REFERENCES States(Id),

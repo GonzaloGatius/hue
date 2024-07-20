@@ -2,7 +2,7 @@
     @InternNumber INT,
     @Piece NVARCHAR(50),
     @Stock INT,
-    @Size NVARCHAR(50),
+    @SizeId INT,
     @Brand NVARCHAR(50),
     @Color NVARCHAR(50),
     @Condition NVARCHAR(50),
@@ -15,13 +15,13 @@ AS
 BEGIN
     INSERT INTO [dbo].[NeopreneGears] 
     (
-        [InternNumber], [Piece], [Stock], [Size], 
+        [InternNumber], [Piece], [Stock], [SizeId], 
         [Brand], [Color], [Condition], [StateId], 
         [Acquired], [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @Piece, @Stock, @Size, 
+        @InternNumber, @Piece, @Stock, @SizeId, 
         @Brand, @Color, @Condition, @StateId, 
         @Acquired, @Price, @Notes
     );

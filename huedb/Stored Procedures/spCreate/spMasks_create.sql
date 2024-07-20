@@ -2,7 +2,7 @@
     @InternNumber INT,
     @Brand NVARCHAR(50),
     @Model NVARCHAR(100),
-    @Size NVARCHAR(50),
+    @SizeId INT,
     @Acquired DATE,
     @Condition INT,
     @StateId INT,
@@ -14,13 +14,13 @@ AS
 BEGIN
     INSERT INTO [dbo].[Masks] 
     (
-        [InternNumber], [Brand], [Model], [Size], 
+        [InternNumber], [Brand], [Model], [SizeId], 
         [Acquired], [Condition], [StateId], [Color], 
         [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @Brand, @Model, @Size, 
+        @InternNumber, @Brand, @Model, @SizeId, 
         @Acquired, @Condition, @StateId, @Color, 
         @Price, @Notes
     );

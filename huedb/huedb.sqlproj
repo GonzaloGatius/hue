@@ -90,7 +90,6 @@
     <Build Include="Tables\Products\Tanks.sql" />
     <Build Include="Tables\Users\Users.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateStrings50.sql" />
-    <Build Include="Stored Procedures\Generics\spGenerics_createWithName50.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateDates.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateStrings2000.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateModels.sql" />
@@ -109,6 +108,7 @@
     <Build Include="Stored Procedures\ProductTypes\spProductTypes_GetNameById.sql" />
     <Build Include="Tables\Rentals\Weights.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateStrings100.sql" />
+    <Build Include="Tables\Characteristics\Sizes.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="huedb.refactorlog" />

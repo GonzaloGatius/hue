@@ -4,7 +4,6 @@
     @Model NVARCHAR(100),
     @Piece NVARCHAR(100),
     @Acquired DATE,
-    @System NVARCHAR(50),
     @SerialNumber INT,
     @Condition NVARCHAR(50),
     @StateId INT,
@@ -17,13 +16,13 @@ BEGIN
     INSERT INTO [dbo].[Octopus] 
     (
         [InternNumber], [Brand], [Model], [Acquired],  
-        [System], [SerialNumber], [Condition],  
+         [SerialNumber], [Condition],  
         [StateId], [Price], [Notes], [Composition]
     )
     VALUES 
     (
         @InternNumber, @Brand, @Model, @Acquired, 
-        @System, @SerialNumber, @Condition, @PartId, 
+        @SerialNumber, @Condition,
         @StateId, @Price, @Notes, @Composition
     );
 

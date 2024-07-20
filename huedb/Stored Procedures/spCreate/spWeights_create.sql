@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spWeights_create]
     @Name NVARCHAR(50),
-    @TypeId INT,
     @Stock INT,
     @Weight INT,
     @Price INT,
@@ -9,12 +8,12 @@ AS
 BEGIN
     INSERT INTO [dbo].[Weights] 
     (
-        [Name], [TypeId], [Stock], [Weight], 
+        [Name], [Stock], [Weight], 
         [Price]
     )
     VALUES 
     (
-        @Name, @TypeId, @Stock, @Weight, 
+        @Name, @Stock, @Weight, 
         @Price
     );
 

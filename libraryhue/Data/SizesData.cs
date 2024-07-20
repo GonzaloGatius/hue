@@ -15,7 +15,7 @@ namespace libraryhue.Data
         private readonly ConnectionStringData connectionStringData;
 
         protected override string tableName { get; set; } = "Sizes";
-        protected override string spCreateName { get; set; } = "spGenerics_createWithName50";
+        protected override string spCreateName { get; set; } = "";
 
         public SizesData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {
@@ -26,6 +26,6 @@ namespace libraryhue.Data
 
     public interface ISizesData : IDataManager
     {
-
     }
+
 }

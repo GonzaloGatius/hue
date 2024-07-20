@@ -4,7 +4,7 @@
     [InternNumber] INT NOT NULL,
     [Brand] NVARCHAR(50),
     [Model] NVARCHAR(100),
-    [Size] NVARCHAR(50),
+    [SizeId] INT  NOT NULL FOREIGN KEY REFERENCES Sizes(Id),
     [Valves] NVARCHAR(50),
     [Power] NVARCHAR(50),
     [Acquired] DATE,

@@ -4,7 +4,7 @@
 	[InternNumber] INT NOT NULL,
     [Piece] NVARCHAR(100)  NOT NULL,
     [Stock] INT  NOT NULL,
-    [Size] NVARCHAR(50),
+    [SizeId] INT  NOT NULL FOREIGN KEY REFERENCES Sizes(Id),
     [Brand] NVARCHAR(50),
     [Color] NVARCHAR(50),
     [Condition] NVARCHAR(100),

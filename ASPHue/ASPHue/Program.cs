@@ -16,22 +16,18 @@ builder.Services.AddSingleton<IDataAccess, SqlDB>();
 
 builder.Services.AddSingleton<IUserData, UserData>();
 builder.Services.AddSingleton<IBCDsData, BCDsData>();
-builder.Services.AddSingleton<IBrandsData, BrandsData>();
-builder.Services.AddSingleton<IColorsData, ColorsData>();
 builder.Services.AddSingleton<IFinsData, FinsData>();
 builder.Services.AddSingleton<IHoodsData, HoodsData>();
 builder.Services.AddSingleton<IMasksData, MasksData>();
 builder.Services.AddSingleton<INeopreneGearsData, NeopreneGearsData>();
 builder.Services.AddSingleton<IOctopusData, OctopusData>();
-builder.Services.AddSingleton<IOctopusPartsData, OctopusPartsData>();
 builder.Services.AddSingleton<IProductTypesData, ProductTypesData>();
 builder.Services.AddSingleton<IRentalCartData, RentalCartData>();
 builder.Services.AddSingleton<IRentalsData, RentalsData>();
-builder.Services.AddSingleton<ISizesData, SizesData>();
 builder.Services.AddSingleton<IStatesData, StatesData>();
 builder.Services.AddSingleton<ITanksData, TanksData>();
 builder.Services.AddSingleton<IWeightsData, WeightsData>();
-builder.Services.AddSingleton<IWeightTypesData, WeightTypesData>();
+builder.Services.AddSingleton<ISizesData, SizesData>();
 
 var app = builder.Build();
 

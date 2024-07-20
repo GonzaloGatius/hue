@@ -2,7 +2,7 @@
     @InternNumber INT,
     @Brand NVARCHAR(50),
     @Model NVARCHAR(100),
-    @Size NVARCHAR(50),
+    @SizeId INT,
     @Valves NVARCHAR(50),
     @Power NVARCHAR(50),
     @Acquired DATE,
@@ -15,13 +15,13 @@ AS
 BEGIN
     INSERT INTO [dbo].[BCDs] 
     (
-        [InternNumber], [Brand], [Model], [Size], 
+        [InternNumber], [Brand], [Model], [SizeId], 
         [Valves], [Power], [Acquired], [Condition], 
         [StateId], [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @Brand, @Model, @Size, 
+        @InternNumber, @Brand, @Model, @SizeId, 
         @Valves, @Power, @Acquired, @Condition, 
         @StateId, @Price, @Notes
     );
