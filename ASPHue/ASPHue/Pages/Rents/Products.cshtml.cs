@@ -16,10 +16,9 @@ namespace ASPHue.Pages.Rents
 {
     public class ProductsListModel : PageModel
     {
-
+        private readonly ConnectionStringData connectionStringData;
         private readonly IStatesData statesData;
         private readonly IProductTypesData productTypesData;
-        private readonly ConnectionStringData connectionStringData;
         private readonly IBCDsData bcdsData;
         private readonly IFinsData finsData;
         private readonly IHoodsData hoodsData;
@@ -30,10 +29,13 @@ namespace ASPHue.Pages.Rents
         private readonly INeopreneGearsData neopreneGearsData;
 
         [BindProperty(SupportsGet = true)]
-        public int ProductTypeSelected { get; set; } = 1;
+        public int ProductTypeSelectedListId { get; set; } = 1;
+        public string ProductTypeSelectedName { get; set; }
+
+        public ProductTypesModel ProductTypeSelected { get; set; }
 
         public List<SelectListItem> productTypesSelect { get; set; }
-        public List<ProductsModel> products { get; set; }
+        public List<IProductsModel> products { get; set; }
         public ProductsListModel(IStatesData statesData, IProductTypesData productTypesData, ConnectionStringData connectionStringData, INeopreneGearsData neopreneGearsData, IBCDsData bcdsData, IFinsData finsData, IHoodsData hoodsData, IMasksData masksData, IOctopusData octopusData, ITanksData tanksData, IWeightsData weightData)
         {
             this.statesData = statesData;
@@ -53,31 +55,31 @@ namespace ASPHue.Pages.Rents
             var productTypes = await productTypesData.GetAll<ProductTypesModel>();
 
             productTypesSelect = SelectListsManager.FillProductTypesSelectList(productTypes);
-
+            await GetProductTypeSelected();
             products = await GetProducts();
         }
 
-        private async Task<List<ProductsModel>> GetProducts()
+        private async Task<List<IProductsModel>> GetProducts()
         {
-            string name = await GetSelectedProductName(ProductTypeSelected);
-            switch (name)
+            ProductTypeSelectedName = await GetSelectedProductName(ProductTypeSelectedListId);
+            switch (ProductTypeSelectedName)
             {
                 case "Neoprene":
-                    return await neopreneGearsData.GetAll<ProductsModel>();
+                    return await neopreneGearsData.GetAll<IProductsModel>();
                 case "BCDs":
-                    return await bcdsData.GetAll<ProductsModel>();
+                    return await bcdsData.GetAll<IProductsModel>(); //Viendo con interfaz.
                 case "Hoods":
-                    return await hoodsData.GetAll<ProductsModel>();
+                    return await hoodsData.GetAll<IProductsModel>();
                 case "Masks":
-                    return await masksData.GetAll<ProductsModel>();
+                    return await masksData.GetAll<IProductsModel>();
                 case "Octopus":
-                    return await octopusData.GetAll<ProductsModel>();
+                    return await octopusData.GetAll<IProductsModel>();
                 case "Tanks":
-                    return await tanksData.GetAll<ProductsModel>();
+                    return await tanksData.GetAll<IProductsModel>();
                 case "Fins":
-                    return await finsData.GetAll<ProductsModel>();
+                    return await finsData.GetAll<IProductsModel>();
                 case "Weights":
-                    return await weightData.GetAll<ProductsModel>();
+                    return await weightData.GetAll<IProductsModel>();
                 default: return null;
             }
         }
@@ -87,23 +89,18 @@ namespace ASPHue.Pages.Rents
             return await productTypesData.GetProductNameById<string>(id);
         }
 
-        public async Task<bool> CheckMethod(int id, string columnName)
+        public async Task<string> GetStateName(int id)
         {
-            switch (columnName)
-            {
-                case "Name":
-                    return ColumnChecker.CheckIfName(await GetSelectedProductName(id));
-                case "Model":
-                    return ColumnChecker.CheckIfModel(await GetSelectedProductName(id));
-                case "Brand":
-                    return ColumnChecker.CheckIfBrand(await GetSelectedProductName(id));
-                case "Color":
-                    return ColumnChecker.CheckIfColor(await GetSelectedProductName(id));
-                case "Size":
-                    return ColumnChecker.CheckIfSize(await GetSelectedProductName(id));
-                case "":
-                    return ColumnChecker.CheckIfBrand(await GetSelectedProductName(id));
-            }
+            var state = await statesData.GetById<StatesModel>(id);
+            return state.Name;
         }
+
+        public async Task GetProductTypeSelected()
+        {
+            ProductTypeSelected = await productTypesData.GetById<ProductTypesModel>(ProductTypeSelectedListId);
+        }
+
+
+
     }
 }

@@ -1,45 +1,71 @@
-﻿namespace ASPHue.HelperMethods.TableManagement
+﻿using libraryhue.Data;
+using libraryhue.Models.Characteristics;
+using libraryhue.Models.Products;
+using System.Reflection;
+
+namespace ASPHue.HelperMethods.TableManagement
 {
     public static class ColumnChecker
     {
-        public static bool CheckIfName(string productTypeName)
+        public static bool CheckField(string field, ProductTypesModel productType)
         {
-            switch (productTypeName) 
-            {
-                case "Neoprene":
-                case "Hoods":
-                case "Tanks":
-                    return true;
-                default: return false;
-            }
+            var type = GetType(productType);
+
+            bool hasField = type.GetProperty(field) != null;
+
+            return hasField;
         }
 
-        public static bool CheckIfModel(string productTypeName)
+        public static string GetName(IProductsModel product)
         {
-            switch (productTypeName)
+            var neopreneGear = (NeopreneGearsModel)product;
+
+            // Si la conversión es exitosa, neopreneGear no será null y podemos acceder a la propiedad Name
+            if (neopreneGear != null)
             {
-                case "BCDs":
-                case "Fins":
-                case "Masks":
-                case "Octopus":
-                case "Tanks":
-                    return true;
-                default: return false;
+                return neopreneGear.Name;
             }
+
+            return "falló LOL";
+
         }
 
-        public static bool CheckIfBrand(string productTypeName)
+        public static int GetSize(IProductsModel product)
         {
-            switch (productTypeName)
+            NeopreneGearsModel neo = (NeopreneGearsModel)product;
+            return neo.SizeId;
+        }
+
+        public static string GetModel(IProductsModel product)
+        {
+            NeopreneGearsModel neo = (NeopreneGearsModel)product;
+            return neo.Model;
+        }
+        public static string GetBrand(IProductsModel product)
+        {
+            NeopreneGearsModel neo = (NeopreneGearsModel)product;
+            return neo.Brand;
+        }
+
+        public static Type GetType(ProductTypesModel productType)
+        {
+            switch(productType.Name)
             {
-                case "BCDs":
-                case "Fins":
-                case "Hoods":
-                case "Masks":
                 case "Neoprene":
+                    return typeof(NeopreneGearsModel);
+                case "BCDs":
+                    return typeof(BCDsModel);
+                case "Hoods":
+                    return typeof(HoodsModel);
+                case "Masks":
+                    return typeof(MasksModel);
                 case "Octopus":
-                    return true;
-                default: return false;
+                    return typeof(OctopusModel);
+                case "Tanks":
+                    return typeof(TanksModel);
+                case "Fins":
+                    return typeof(FinsModel);
+                default: return null;
             }
         }
     }
