@@ -1,0 +1,42 @@
+﻿@using libraryhue.Models.Products
+@model List<NeopreneGearsModel>
+@{
+    <table class="table">
+        <thead class="border-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nro. Interno</th>
+                <th colspan="2">Producto</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Talle</th>
+                <th>Estado</th>
+                <th>Color</th>
+                <th>Precio</th>
+                <th>Condición</th> 
+                <th>Adquirido</th> 
+                <th colspan="2">Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach(var m in Model)
+        {
+            <tr>
+                <td>@m.Id</td>
+                <td>@m.InternNumber</td>
+                <td colspan ="2">@m.Name</td>
+                <td>@m.Brand</td>
+                <td>@m.Model</td>
+                <td>@m.SizeId</td>
+                <td>@m.StateId</td>
+                <td>@m.Color</td>
+                <td>@m.Price</td>
+                <td>@m.Condition</td>
+                <td>@m.Acquired</td>
+                <td colspan ="2">@m.Notes</td>
+                <td><a asp-page="#" asp-route-id="@m.Id" class="btn btn-rate">Ver más</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

@@ -2,7 +2,6 @@
 (
     [Id] INT NOT NULL PRIMARY KEY,
     [InternNumber] INT NOT NULL ,
-    [Stock] INT NOT NULL,
     [SizeId] INT  NOT NULL FOREIGN KEY REFERENCES Sizes(Id),
     [Brand] NVARCHAR(50),
     [Color] NVARCHAR(50),

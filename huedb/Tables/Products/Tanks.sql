@@ -3,7 +3,6 @@
 	[Id] INT NOT NULL PRIMARY KEY,
     [InternNumber] INT NOT NULL,
     [Name] NVARCHAR(50)  NOT NULL,
-    [Stock] INT  NOT NULL,
     [IsAluminium] BIT NOT NULL,
     [SerialNumber] INT NOT NULL,
     [TankValves] NVARCHAR(50),

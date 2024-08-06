@@ -16,19 +16,7 @@ namespace ASPHue.HelperMethods.TableManagement
             return hasField;
         }
 
-        public static string GetName(IProductsModel product)
-        {
-            var neopreneGear = (NeopreneGearsModel)product;
-
-            // Si la conversión es exitosa, neopreneGear no será null y podemos acceder a la propiedad Name
-            if (neopreneGear != null)
-            {
-                return neopreneGear.Name;
-            }
-
-            return "falló LOL";
-
-        }
+       
 
         public static int GetSize(IProductsModel product)
         {

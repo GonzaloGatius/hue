@@ -20,14 +20,14 @@ AS
 BEGIN
     INSERT INTO [dbo].[Tanks] 
     (
-        [InternNumber], [Name], [Stock], [IsAluminium], 
+        [InternNumber], [Name], [IsAluminium], 
         [SerialNumber], [TankValves], Color, [Capacity], 
         [Pressure], [HT], [HTCertificate], [Condition], 
         [StateId], [Acquired], [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @Name, @Stock, @IsAluminium, 
+        @InternNumber, @Name, @IsAluminium, 
         @SerialNumber, @TankValves, @Color, @Capacity, 
         @Presure, @HT, @HTCertificate, @Condition, 
         @StateId, @Acquired, @Price, @Notes

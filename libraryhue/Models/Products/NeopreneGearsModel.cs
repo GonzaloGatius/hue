@@ -16,7 +16,7 @@ namespace libraryhue.Models.Products
         public int StateId { get; set; }
         public string? Notes { get; set; }
         public string Name { get; set; }
-        public int? ColorId { get; set; }
+        public string? Color  { get; set; }
         public int SizeId { get; set; }
         public string? Model { get; set; }
         public string? Brand { get; set; }

@@ -10,6 +10,7 @@ namespace libraryhue.Models.Products
     {
         public int Id { get; set; }
         public int InternNumber { get; set; }
+        public string Name { get; set; }
         public DateTime? Acquired { get; set; }
         public int Price { get; set; }
         public string Condition { get; set; }
@@ -18,7 +19,7 @@ namespace libraryhue.Models.Products
         public bool IsAluminium { get; set; }
         public int SerialNumber { get; set; }
         public string? TankValves { get; set; }
-        public int? ColorId { get; set; }
+        public string? Color { get; set; }
         public int? Capacity { get; set; }
         public int? Presure { get; set; }
         public DateTime? HT { get; set; }

@@ -14,13 +14,13 @@ AS
 BEGIN
     INSERT INTO [dbo].[Hoods] 
     (
-        [InternNumber], [Stock], [SizeId], 
+        [InternNumber], [SizeId], 
         [Brand], [Color], [Acquired], [Condition], 
         [StateId], [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @Stock, @SizeId, 
+        @InternNumber, @SizeId, 
         @Brand, @Color, @Acquired, @Condition, 
         @StateId, @Price, @Notes
     );

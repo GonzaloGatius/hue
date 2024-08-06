@@ -25,7 +25,7 @@ namespace ASPHue.HelperMethods
                 case "Weights":
                     return "Pesos";
                 default:
-                    return null;
+                    return "Neoprene";
             }
         }
     }

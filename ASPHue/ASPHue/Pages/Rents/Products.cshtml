@@ -1,6 +1,7 @@
 ﻿@page
 @using ASPHue.HelperMethods
 @using ASPHue.HelperMethods.TableManagement
+@using libraryhue.Models.Products
 @using static ASPHue.HelperMethods.SpanishTranslator
 @using static ASPHue.HelperMethods.TableManagement.ColumnChecker
 
@@ -12,60 +13,36 @@
     <select asp-for="ProductTypeSelectedListId" asp-items="Model.productTypesSelect"></select>
     <input type="submit" class="btn" />
 </form>
-<h4>Viendo @GetTranslatedProductName(Model.ProductTypeSelectedName)</h4>
-<table class="table">
-    <thead class="navbar-dark">
-        <tr>
-            <th>Id</th>
-            <th>Nro. Interno</th>
-            @if (CheckField("Name", Model.ProductTypeSelected))
-            {
-             <th>Nombre</th>
-            }
-            @if (CheckField("Size", Model.ProductTypeSelected))
-            {
-             <th>Talle</th>
-            }
-            @if (CheckField("Model", Model.ProductTypeSelected))
-            {
-             <th>Modelo</th>
-            }
-            <th>Estado</th>
-            <th>Precio</th>
-            <th>Condición</th> 
-            <th>Notas</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var product in Model.products)
-        {   
-        <tr>
-            <td>@product.Id</td>
-            <td>@product.InternNumber</td>
-            @if(CheckField("Name", Model.ProductTypeSelected))
-            {
-                <td>@GetName(product)</td>
-            }
-            @* @if (CheckField("Size", Model.ProductTypeSelected))
-            {
-                <td>@GetSize(product)</td>
-            }
-            @if (CheckField("Model", Model.ProductTypeSelected))
-            {
-                 <td>@GetModel(product)</td>
-            }
-            @if (CheckField("Brand", Model.ProductTypeSelected))
-            {
-                <td>@GetBrand(product)</td>
-            } *@
-            <td>@await Model.GetStateName(product.StateId)</td>
-            <td>$@product.Price</td>
-            <td>@product.Condition</td>
-            <td>@product.Notes</td>
-            <td><a asp-page="#" asp-route-id="@product.Id" class="btn btn-rate">Ver más</a></td>
-        </tr>
-        }
-    </tbody>
-</table>
+<h4>Viendo @GetTranslatedProductName(Model.ProductTypeSelected.Name)</h4>
+@switch (Model.ProductTypeSelected.Name)
+{
+    case "Neoprene":
+        <partial name="_NeoprenePartial" model="Model.Neoprenes"/> //Revisar los INSERTS (tabla incompleta).
+        break;
+    case "BCDs":
+        <partial name="_BCDsPartial" model="Model.BDCs"/>
+        break;
+    case "Hoods":
+        break;
+    case "Masks":
+        break;
+    case "Octopus":
+        break;
+    case "Tanks":
+        break;
+    case "Fins":
+        break;
+    default:
+        <partial name="_NeoprenePartial" model="Model.Neoprenes"/>
+        break;
+}
+
+
+
+
+
+
+
+
 
 
