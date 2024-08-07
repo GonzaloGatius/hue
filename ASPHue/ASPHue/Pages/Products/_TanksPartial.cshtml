@@ -1,0 +1,52 @@
+﻿@using libraryhue.Models.Products
+@model ASPHue.Pages.Products.ProductsListModel
+@{
+    <table class="table">
+        <thead class="border-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nro. Interno</th>
+                <th>Tanque</th>
+                <th>Aluminio</th>
+                <th>No. Serie</th>
+                <th>Válvulas</th>
+                <th>Color</th>
+                <th>Capacidad</th>
+                <th>Presión</th>
+                <th>HT</th>
+                <th>Fecha HT</th>
+                <th>Condición</th>
+                <th>Estado</th>
+                <th>Precio</th>
+                <th>Adquirido</th>
+                <th colspan="2">Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model.Tanks)
+            {
+                <tr>
+                    <td>@m.Id</td>
+                    <td>@m.InternNumber</td>
+                    <td>@m.Name</td>
+                    <td><input type="checkbox" disabled @(m.IsAluminium ? "checked" : "")/></td>
+                    <td>@m.SerialNumber</td>
+                    <td>@m.TankValves</td>
+                    <td>@m.Color</td>
+                    <td>@m.Capacity</td>
+                    <td>@m.Presure</td>
+                    <td><input type="checkbox" disabled @(@m.HTCertificate ? "checked" : "") /></td>
+                    <td>@m.HT</td>
+                    <td>@m.Condition</td>
+                    <td>@await Model.GetStateName(m.StateId)</td>
+                    <td>@m.Price</td>
+                    <td>@m.Acquired</td>
+                    <td colspan="2">@m.Notes</td>
+                    <td><a asp-page="#" asp-route-id="@m.Id" class="btn btn-rate">Ver más</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}

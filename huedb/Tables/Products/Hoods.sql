@@ -4,6 +4,7 @@
     [InternNumber] INT NOT NULL ,
     [SizeId] INT  NOT NULL FOREIGN KEY REFERENCES Sizes(Id),
     [Brand] NVARCHAR(50),
+    [Model] NVARCHAR(100),
     [Color] NVARCHAR(50),
     [Acquired] DATE,
     [Condition] NVARCHAR(100),

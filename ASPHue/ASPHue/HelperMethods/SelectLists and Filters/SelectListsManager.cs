@@ -1,4 +1,4 @@
-﻿using ASPHue.Pages.Rents;
+﻿using ASPHue.Pages.Products;
 using libraryhue.Models.Characteristics;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

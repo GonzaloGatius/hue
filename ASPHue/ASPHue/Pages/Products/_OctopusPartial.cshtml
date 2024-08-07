@@ -1,0 +1,42 @@
+﻿@using libraryhue.Models.Products
+@model ASPHue.Pages.Products.ProductsListModel
+@{
+    <table class="table">
+        <thead class="border-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nro. Interno</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Estado</th>
+                <th>No. Serie</th>
+                <th>Composición</th>
+                <th>Precio</th>
+                <th>Condición</th>
+                <th>Adquirido</th>
+                <th colspan="2">Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model.Octopus)
+            {
+                <tr>
+                    <td>@m.Id</td>
+                    <td>@m.InternNumber</td>
+                    <td>@m.Brand</td>
+                    <td>@m.Model</td>
+                    <td>@await Model.GetStateName(m.StateId)</td>
+                    <td>@m.SerialNumber</td>
+                    <td>@m.Composition</td>
+                    <td>@m.Price</td>
+                    <td>@m.Condition</td>
+                    <td>@m.Acquired</td>
+                    <td colspan="2">@m.Notes</td>
+                    <td><a asp-page="#" asp-route-id="@m.Id" class="btn btn-rate">Ver más</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}

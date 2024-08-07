@@ -1,5 +1,6 @@
 ﻿@using libraryhue.Models.Products
-@model List<NeopreneGearsModel>
+@model ASPHue.Pages.Products.ProductsListModel
+
 @{
     <table class="table">
         <thead class="border-dark">
@@ -8,7 +9,6 @@
                 <th>Nro. Interno</th>
                 <th colspan="2">Producto</th>
                 <th>Marca</th>
-                <th>Modelo</th>
                 <th>Talle</th>
                 <th>Estado</th>
                 <th>Color</th>
@@ -19,16 +19,15 @@
             </tr>
         </thead>
         <tbody>
-        @foreach(var m in Model)
+        @foreach(var m in Model.Neoprenes)
         {
             <tr>
                 <td>@m.Id</td>
                 <td>@m.InternNumber</td>
-                <td colspan ="2">@m.Name</td>
+                <td colspan ="2">@m.Piece</td>
                 <td>@m.Brand</td>
-                <td>@m.Model</td>
-                <td>@m.SizeId</td>
-                <td>@m.StateId</td>
+                <td>@await Model.GetSizeName(m.SizeId)</td>
+                <td>@await Model.GetStateName(m.StateId)</td>
                 <td>@m.Color</td>
                 <td>@m.Price</td>
                 <td>@m.Condition</td>

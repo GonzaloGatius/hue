@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Models.Products
 {
-    public interface IProductsModel
+    public interface IAccesories
     {
         public int Id { get; set; }
         public int InternNumber { get; set; }
@@ -15,5 +15,10 @@ namespace libraryhue.Models.Products
         public string Condition { get; set; }
         public int StateId { get; set; }
         public string? Notes { get; set; }
+        public string? Color { get; set; }
+        public int SizeId { get; set; }
+        public string? Model { get; set; }
+        public string? Brand { get; set; }
+
     }
 }

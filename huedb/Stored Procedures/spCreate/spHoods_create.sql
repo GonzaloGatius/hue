@@ -3,6 +3,7 @@
     @Stock INT,
     @SizeId INT,
     @Brand NVARCHAR(50),
+    @Model NVARCHAR(100),
     @Color NVARCHAR(50),
     @Acquired DATE,
     @Condition INT,
@@ -15,13 +16,13 @@ BEGIN
     INSERT INTO [dbo].[Hoods] 
     (
         [InternNumber], [SizeId], 
-        [Brand], [Color], [Acquired], [Condition], 
+        [Brand], [Model], [Color], [Acquired], [Condition], 
         [StateId], [Price], [Notes]
     )
     VALUES 
     (
         @InternNumber, @SizeId, 
-        @Brand, @Color, @Acquired, @Condition, 
+        @Brand, @Model, @Color, @Acquired, @Condition, 
         @StateId, @Price, @Notes
     );
 

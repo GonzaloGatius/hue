@@ -12,11 +12,12 @@ using System.ComponentModel;
 using ASPHue.HelperMethods.TableManagement;
 using System.Reflection;
 
-namespace ASPHue.Pages.Rents
+namespace ASPHue.Pages.Products
 {
     public class ProductsListModel : PageModel
     {
         private readonly ConnectionStringData connectionStringData;
+        private readonly ISizesData sizesData;
         private readonly IStatesData statesData;
         private readonly IProductTypesData productTypesData;
         private readonly IBCDsData bcdsData;
@@ -31,16 +32,16 @@ namespace ASPHue.Pages.Rents
         [BindProperty(SupportsGet = true)]
         public int ProductTypeSelectedListId { get; set; } = 1;
         public ProductTypesModel ProductTypeSelected { get; set; }
+        public string ProductTypeSelectedName { get; set; }
         public List<SelectListItem> productTypesSelect { get; set; }
         public List<NeopreneGearsModel> Neoprenes { get; set; }
         public List<BCDsModel> BDCs { get; set; }
-        public List<HoodsModel> Hoods { get; set; }
-        public List<MasksModel> Masks { get; set; }
-        public List<FinsModel> Fins { get; set; }
+        public List<IAccesories> Accesories { get; set; }
         public List<OctopusModel> Octopus { get; set; }
         public List<TanksModel> Tanks { get; set; }
-        public ProductsListModel(IStatesData statesData, IProductTypesData productTypesData, ConnectionStringData connectionStringData, INeopreneGearsData neopreneGearsData, IBCDsData bcdsData, IFinsData finsData, IHoodsData hoodsData, IMasksData masksData, IOctopusData octopusData, ITanksData tanksData, IWeightsData weightData)
+        public ProductsListModel(ISizesData sizesData, IStatesData statesData, IProductTypesData productTypesData, ConnectionStringData connectionStringData, INeopreneGearsData neopreneGearsData, IBCDsData bcdsData, IFinsData finsData, IHoodsData hoodsData, IMasksData masksData, IOctopusData octopusData, ITanksData tanksData, IWeightsData weightData)
         {
+            this.sizesData = sizesData;
             this.statesData = statesData;
             this.productTypesData = productTypesData;
             this.connectionStringData = connectionStringData;
@@ -74,19 +75,23 @@ namespace ASPHue.Pages.Rents
                     BDCs = await bcdsData.GetAll<BCDsModel>();
                     break;
                 case "Hoods":
-                    Hoods = await hoodsData.GetAll<HoodsModel>();
+                    List<HoodsModel> hoodsList = await hoodsData.GetAll<HoodsModel>();
+                    Accesories = hoodsList.Cast<IAccesories>().ToList();
+                    break;
                     break;
                 case "Masks":
-                    Masks = await masksData.GetAll<MasksModel>();
+                    List<MasksModel> masksList = await masksData.GetAll<MasksModel>();
+                    Accesories = masksList.Cast<IAccesories>().ToList();
+                    break;
+                case "Fins":
+                    List<FinsModel> finsList = await finsData.GetAll<FinsModel>();
+                    Accesories = finsList.Cast<IAccesories>().ToList();
                     break;
                 case "Octopus":
                     Octopus = await octopusData.GetAll<OctopusModel>();
                     break;
                 case "Tanks":
                     Tanks = await tanksData.GetAll<TanksModel>();
-                    break;
-                case "Fins":
-                    Fins = await finsData.GetAll<FinsModel>();
                     break;
                 default:
                     break;
@@ -98,39 +103,17 @@ namespace ASPHue.Pages.Rents
             var state = await statesData.GetById<StatesModel>(id);
             return state.Name;
         }
+        public async Task<string> GetSizeName(int id)
+        {
+            var size = await sizesData.GetById<SizesModel>(id);
+            return size.Name;
+        }
 
         public async Task GetProductTypeSelected()
         {
-            ProductTypeSelected = await productTypesData.GetById<ProductTypesModel>(ProductTypeSelectedListId);
-        }
-        public void GetProductName(IProductsModel product)
-        {
-            switch (product)
-            {
-                case NeopreneGearsModel neopreneGears:
-                    product.Name = neopreneGears.Name;
-                    break;
-                case BCDsModel bCDsModel:
-                    product.Name = bCDsModel.Brand + ", " + bCDsModel.Model;
-                    break;
-                case FinsModel finsModel:
-                    product.Name = finsModel.Brand + ", " + finsModel.Model;
-                    break;
-                case HoodsModel hoodsModel:
-                    product.Name = hoodsModel.Brand + ", " + hoodsModel.Model;
-                    break;
-                case MasksModel masksModel:
-                    product.Name = masksModel.Brand + ", " + masksModel.Model;
-                    break;
-                case OctopusModel octopusModel:
-                    product.Name = octopusModel.Brand + ", " + octopusModel.Model;
-                    break;
-                case TanksModel tanksModel:
-                    product.Name = "Válvulas: " + tanksModel.TankValves + ", " + tanksModel.Capacity + " lts.";
-                    break;
-                default:
-                    break;
-            }
+            var productType =  await productTypesData.GetById<ProductTypesModel>(ProductTypeSelectedListId);
+            ProductTypeSelected = productType;
+            ProductTypeSelectedName = productType.Name;
         }
     }
 }

@@ -5,7 +5,7 @@
 @using static ASPHue.HelperMethods.SpanishTranslator
 @using static ASPHue.HelperMethods.TableManagement.ColumnChecker
 
-@model ASPHue.Pages.Rents.ProductsListModel
+@model ASPHue.Pages.Products.ProductsListModel
 @{
     ViewData["Title"] = "Lista de productos";
 }
@@ -14,31 +14,29 @@
     <input type="submit" class="btn" />
 </form>
 <h4>Viendo @GetTranslatedProductName(Model.ProductTypeSelected.Name)</h4>
-@switch (Model.ProductTypeSelected.Name)
+@switch (Model.ProductTypeSelectedName)
 {
     case "Neoprene":
-        <partial name="_NeoprenePartial" model="Model.Neoprenes"/> //Revisar los INSERTS (tabla incompleta).
+        <partial name="_NeoprenePartial" model="Model"/> 
         break;
     case "BCDs":
-        <partial name="_BCDsPartial" model="Model.BDCs"/>
+        <partial name="_BCDsPartial" model="Model"/>
         break;
     case "Hoods":
-        break;
     case "Masks":
+    case "Fins":
+        <partial name="_AccesoriesPartial" model="Model"/>
         break;
     case "Octopus":
+        <partial name="_OctopusPartial" model="Model"/>
         break;
     case "Tanks":
-        break;
-    case "Fins":
+        <partial name="_TanksPartial" model="Model"/>
         break;
     default:
         <partial name="_NeoprenePartial" model="Model.Neoprenes"/>
         break;
 }
-
-
-
 
 
 
