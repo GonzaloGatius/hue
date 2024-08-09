@@ -33,7 +33,9 @@
                     <td>@m.Condition</td>
                     <td>@m.Acquired</td>
                     <td colspan="2">@m.Notes</td>
-                    <td><a asp-page="#" asp-route-id="@m.Id" class="btn btn-rate">Ver más</a></td>
+                    @{string cat = m.GetType().ToString();}
+                    <td><a asp-page="..\EditProduts\EditProducts" asp-route-id="@m.Id" asp-route-category="fg" class="btn btn-rate">Editar</a></td>
+
                 </tr>
             }
         </tbody>

@@ -31,6 +31,8 @@ namespace ASPHue.Pages.Products
 
         [BindProperty(SupportsGet = true)]
         public int ProductTypeSelectedListId { get; set; } = 1;
+        [BindProperty(SupportsGet = true)]
+        public int X { get; set; }
         public ProductTypesModel ProductTypeSelected { get; set; }
         public string ProductTypeSelectedName { get; set; }
         public List<SelectListItem> productTypesSelect { get; set; }
@@ -56,20 +58,22 @@ namespace ASPHue.Pages.Products
         }
         public async Task OnGet()
         {
+            //Neoprenes = Neoprenes2.OrderBy(x => x.Notes).ToList();
             await GetProductTypeSelected();
             var productTypes = await productTypesData.GetAll<ProductTypesModel>();
+            X = ProductTypeSelectedListId;//acaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!!!!!!!!!!!!!
 
             productTypesSelect = SelectListsManager.FillProductTypesSelectList(productTypes);
 
             await GetProducts();
         }
-
+        
         private async Task GetProducts()
         {
             switch (ProductTypeSelected.Name)
             {
                 case "Neoprene":
-                    Neoprenes=  await neopreneGearsData.GetAll<NeopreneGearsModel>();
+                    Neoprenes =  await neopreneGearsData.GetAll<NeopreneGearsModel>();
                     break;
                 case "BCDs":
                     BDCs = await bcdsData.GetAll<BCDsModel>();
@@ -77,7 +81,6 @@ namespace ASPHue.Pages.Products
                 case "Hoods":
                     List<HoodsModel> hoodsList = await hoodsData.GetAll<HoodsModel>();
                     Accesories = hoodsList.Cast<IAccesories>().ToList();
-                    break;
                     break;
                 case "Masks":
                     List<MasksModel> masksList = await masksData.GetAll<MasksModel>();
