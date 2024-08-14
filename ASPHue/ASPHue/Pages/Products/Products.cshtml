@@ -3,15 +3,14 @@
 @using ASPHue.HelperMethods.TableManagement
 @using libraryhue.Models.Products
 @using static ASPHue.HelperMethods.SpanishTranslator
-@using static ASPHue.HelperMethods.TableManagement.ColumnChecker
 
 @model ASPHue.Pages.Products.ProductsListModel
 @{
     ViewData["Title"] = "Lista de productos";
 }
 <form method="get">
-    <select asp-for="ProductTypeSelectedListId" asp-items="Model.productTypesSelect"></select>
-    <input type="submit" class="btn" />
+    <select asp-for="ProductTypeSelectedListId" asp-items="Model.productTypesSelectList"></select>
+    <input type="submit" value="Filtrar" class="btn" />
 </form>
 <h4>Viendo @GetTranslatedProductName(Model.ProductTypeSelected.Name)</h4>
 @switch (Model.ProductTypeSelectedName)

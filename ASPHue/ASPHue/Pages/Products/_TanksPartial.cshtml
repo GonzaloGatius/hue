@@ -42,7 +42,7 @@
                     <td>@m.Price</td>
                     <td>@m.Acquired</td>
                     <td colspan="2">@m.Notes</td>
-                    <td><a asp-page="..\EditProdcuts\EditProducts" asp-route-id="@m.Id" class="btn btn-rate">Editar</a></td>
+                    <td><a asp-page="..\EditProducts\EditProducts" asp-route-id="@m.Id" asp-route-type="@Model.ProductTypeSelectedName" class="btn btn-rate">Editar</a></td>
                 </tr>
             }
         </tbody>

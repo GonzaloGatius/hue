@@ -1,0 +1,28 @@
+﻿@page
+@model ASPHue.Pages.EditProdcuts.EditProductsModel
+@{
+    ViewData["Title"] = "Editar producto";
+}
+@switch (Model.Type)
+{
+    case "Neoprene":
+        <partial name="_NeopreneEditPartial" model="Model" />
+        break;
+    case "BCDs":
+        <partial name="_BCDsPartial" model="Model" />
+        break;
+    case "Hoods":
+    case "Masks":
+    case "Fins":
+        <partial name="_AccesoriesPartial" model="Model" />
+        break;
+    case "Octopus":
+        <partial name="_OctopusPartial" model="Model" />
+        break;
+    case "Tanks":
+        <partial name="_TanksPartial" model="Model" />
+        break;
+    default:
+        <p>No se encontró el ítem.</p>
+        break;
+}

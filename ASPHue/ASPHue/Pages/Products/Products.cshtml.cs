@@ -32,10 +32,9 @@ namespace ASPHue.Pages.Products
         [BindProperty(SupportsGet = true)]
         public int ProductTypeSelectedListId { get; set; } = 1;
         [BindProperty(SupportsGet = true)]
-        public int X { get; set; }
         public ProductTypesModel ProductTypeSelected { get; set; }
         public string ProductTypeSelectedName { get; set; }
-        public List<SelectListItem> productTypesSelect { get; set; }
+        public List<SelectListItem> productTypesSelectList { get; set; }
         public List<NeopreneGearsModel> Neoprenes { get; set; }
         public List<BCDsModel> BDCs { get; set; }
         public List<IAccesories> Accesories { get; set; }
@@ -61,9 +60,7 @@ namespace ASPHue.Pages.Products
             //Neoprenes = Neoprenes2.OrderBy(x => x.Notes).ToList();
             await GetProductTypeSelected();
             var productTypes = await productTypesData.GetAll<ProductTypesModel>();
-            X = ProductTypeSelectedListId;//acaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!!!!!!!!!!!!!!!!!!!!!!!!!
-
-            productTypesSelect = SelectListsManager.FillProductTypesSelectList(productTypes);
+            productTypesSelectList = SelectListsManager.FillProductTypesSelectList(productTypes);
 
             await GetProducts();
         }

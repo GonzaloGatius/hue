@@ -34,8 +34,7 @@
                     <td>@m.Acquired</td>
                     <td colspan="2">@m.Notes</td>
                     @{string cat = m.GetType().ToString();}
-                    <td><a asp-page="..\EditProduts\EditProducts" asp-route-id="@m.Id" asp-route-category="fg" class="btn btn-rate">Editar</a></td>
-
+                    <td><a asp-page="..\EditProducts\EditProducts" asp-route-id="@m.Id" asp-route-type="@Model.ProductTypeSelectedName" class="btn btn-rate">Editar</a></td>
                 </tr>
             }
         </tbody>

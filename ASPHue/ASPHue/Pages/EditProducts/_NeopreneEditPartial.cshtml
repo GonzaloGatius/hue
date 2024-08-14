@@ -1,0 +1,145 @@
+﻿@using libraryhue.Models.Products;
+@model ASPHue.Pages.EditProdcuts.EditProductsModel
+
+@if (Model == null)
+{
+    <h2>Artículo no encontrado.</h2>
+}
+else
+{
+    <form method="post">
+        <div class="form-group">
+            <label class="control-label"><strong>Equipo</strong></label>
+            <h4><input asp-for="@Model.NeopreneGearModel.Piece" class="form-control" /></h4>
+            <span asp-validation-for="@Model.NeopreneGearModel.Piece" class="text-danger"></span>
+        </div>
+        <table class="table">
+            <thead>
+                <th type="hidden"></th>
+                <th type="hidden"></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="form-group">@*Id*@
+                            <p><strong>Id:</strong> @Model.Id</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Adquirido*@
+                            <label class="control-label"><strong>Adquirido</strong></label>
+                            <input type="date" asp-for="@Model.NeopreneGearModel.Acquired" />
+                            <span asp-validation-for="@Model.NeopreneGearModel.Acquired" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">@*Interno*@
+                            <label class="control-label"><strong>No. Interno</strong></label>
+                            <input asp-for="@Model.NeopreneGearModel.InternNumber" class="form-control" />
+                            <span asp-validation-for="@Model.NeopreneGearModel.InternNumber" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Estado*@
+                            <label class="control-label"><strong>Estado</strong></label>
+                            <select asp-for="@Model.NeopreneGearModel.StateId" asp-items="@Model.StatesSelectList" class="form-control"></select>
+                            <span asp-validation-for="@Model.NeopreneGearModel.StateId" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Precio*@
+                            <label class="control-label"><strong>Precio ($)</strong></label>
+                            <input asp-for="@Model.NeopreneGearModel.Price" class="form-control" min="0"/>
+                            <span asp-validation-for="@Model.NeopreneGearModel.Price" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Condición*@
+                            <label class="control-label"><strong>Condición</strong></label>
+                            <input asp-for="@Model.NeopreneGearModel.Condition" class="form-control"></input>
+                            <span asp-validation-for="@Model.NeopreneGearModel.Condition" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Talle*@
+                            <label class="control-label"><strong>Talle</strong></label>
+                            <select asp-for="@Model.NeopreneGearModel.SizeId" asp-items="@Model.SizesSelectList" class="form-control"></select>
+                            <span asp-validation-for="@Model.NeopreneGearModel.SizeId" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Color*@
+                            <label class="control-label"><strong>Color</strong></label>
+                            <input asp-for="@Model.NeopreneGearModel.Color" class="form-control"></input>
+                            <span asp-validation-for="@Model.NeopreneGearModel.Color" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Marca*@
+                            <label class="control-label"><strong>Marca</strong></label>
+                            <input asp-for="@Model.NeopreneGearModel.Brand" class="form-control"></input>
+                            <span asp-validation-for="@Model.NeopreneGearModel.Brand" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Modelo*@
+                            <label class="control-label"><strong>Modelo</strong></label>
+                            <input asp-for="@Model.NeopreneGearModel.Model" class="form-control"></input>
+                            <span asp-validation-for="@Model.NeopreneGearModel.Model" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="form-group">
+                            @*Notas*@
+                            <label class="control-label"><strong>Notas</strong></label>
+                            <textarea id="notes" asp-for="NeopreneGearModel.Notes" class="form-control" rows="5" maxlength="2000"></textarea>                        
+                            <span asp-validation-for="@Model.NeopreneGearModel.Notes" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <tr>
+            <td colspan="2">
+              <button type="submit" class="btn">Guardar</button>
+            </td>
+        </tr>
+    </form>
+    @section scripts {
+    @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+        
+

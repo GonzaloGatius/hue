@@ -33,7 +33,7 @@
                 <td>@m.Condition</td>
                 <td>@m.Acquired</td>
                 <td colspan ="2">@m.Notes</td>
-                    <td><a asp-page="..\EditProdcuts\EditProducts" asp-route-id="@m.Id" asp-route-X="@Model.X" class="btn btn-rate">Editar</a></td>
+                    <td><a asp-page="..\EditProducts\EditProducts" asp-route-id="@m.Id" asp-route-Type="@Model.ProductTypeSelectedName" class="btn btn-rate">Editar</a></td>
                 </tr>
         }
         </tbody>
