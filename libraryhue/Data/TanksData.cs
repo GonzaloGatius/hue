@@ -14,7 +14,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "Tanks";
         protected override string spCreateName { get; set; } = "spTanks_create";
-        protected override string spUpdateName { get; set; } = "spTanksGears_update";
+        protected override string spUpdateName { get; set; } = "spTanks_update";
 
         public TanksData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

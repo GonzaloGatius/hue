@@ -6,7 +6,6 @@
     @Condition NVARCHAR(50),
     @StateId int,
     @Notes NVARCHAR(2000),
-    @Piece NVARCHAR(50),
     @Valves NVARCHAR(50),
     @Power NVARCHAR(50),
     @SizeId int,

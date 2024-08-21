@@ -7,7 +7,7 @@
     @TankValves NVARCHAR(50),
     @Color NVARCHAR(50),
     @Capacity INT,
-    @Presure INT,
+    @Pressure INT,
     @HT DATE,
     @HTCertificate BIT,
     @Condition INT,
@@ -29,7 +29,7 @@ BEGIN
     (
         @InternNumber, @Name, @IsAluminium, 
         @SerialNumber, @TankValves, @Color, @Capacity, 
-        @Presure, @HT, @HTCertificate, @Condition, 
+        @Pressure, @HT, @HTCertificate, @Condition, 
         @StateId, @Acquired, @Price, @Notes
     );
 

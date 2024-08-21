@@ -15,7 +15,6 @@ namespace libraryhue.Models.Products
         public string Condition { get; set; }
         public int StateId { get; set; }
         public string? Notes { get; set; }
-        public string System { get; set; }
         public int? SerialNumber { get; set; }
         public string? Model { get; set; }
         public string? Brand { get; set; }

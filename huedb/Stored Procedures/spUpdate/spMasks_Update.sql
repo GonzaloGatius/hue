@@ -6,7 +6,6 @@
     @Condition NVARCHAR(50),
     @StateId int,
     @Notes NVARCHAR(2000),
-    @Piece NVARCHAR(50),
     @Color NVARCHAR(50),
     @SizeId int,
     @Model NVARCHAR(100),

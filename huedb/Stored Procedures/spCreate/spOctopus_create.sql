@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spOctopus_create] --Revisar el quilombo de las partes, la rpmqlrmvp. 
+﻿CREATE PROCEDURE [dbo].[spOctopus_create] 
     @InternNumber INT,
     @Brand NVARCHAR(50),
     @Model NVARCHAR(100),

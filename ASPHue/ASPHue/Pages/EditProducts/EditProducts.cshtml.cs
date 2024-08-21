@@ -32,13 +32,8 @@ namespace ASPHue.Pages.EditProdcuts
         public string Type { get; set; }
 
         [BindProperty]
-        public NeopreneGearsModel NeopreneModel { get; set; }
-        [BindProperty]
-        public FinsModel FinModel { get; set; }
-        [BindProperty]
-        public HoodsModel HoodModel { get; set; }
-        [BindProperty]
-        public MasksModel MaskModel { get; set; }
+        public ClothesModel ClothingModel { get; set; }
+       
         [BindProperty]
         public BCDsModel BCDModel { get; set; }
         [BindProperty]
@@ -67,21 +62,22 @@ namespace ASPHue.Pages.EditProdcuts
             this.weightData = weightData;
             this.neopreneGearsData = neopreneGearsData;
         }
-        public async void OnGetAsync()
+        public async Task OnGetAsync()
         {
-            await GetItem(Type, Id);
+
             await SelectListsManager.FillSelectStates(statesData, StatesSelectList);
             await SelectListsManager.FillSelectSizes(sizesData, SizesSelectList);
+            await GetItem(Type, Id);
+            
         }
 
-        public async void OnPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
             await SelectListsManager.FillSelectStates(statesData, StatesSelectList);
             await SelectListsManager.FillSelectSizes(sizesData, SizesSelectList);
-            await UpdateItem(Type, Id, NeopreneModel);
-
-
-
+            await UpdateItem(Type, Id);
+            int ProductTypeSelectedListId = GetItemTypeId(Type);
+            return RedirectToPage("../Products/Products", new { ProductTypeSelectedListId });
         }
         //Viendo para que el edit de los Clothes funcione con la interfaz.
         private async Task GetItem(string productType, int id)
@@ -89,19 +85,19 @@ namespace ASPHue.Pages.EditProdcuts
             switch (productType)
             {
                 case "Neoprene":
-                    NeopreneModel = await neopreneGearsData.GetById<NeopreneGearsModel>(id);
+                    ClothingModel = await neopreneGearsData.GetById<ClothesModel>(id);
                     break;
                 case "BCDs":
                     BCDModel = await bcdsData.GetById<BCDsModel>(id);
                     break;
                 case "Hoods":
-                    HoodModel = await hoodsData.GetById<HoodsModel>(id);
+                    ClothingModel = await hoodsData.GetById<ClothesModel>(id);
                     break;
                 case "Masks":
-                    MaskModel = await masksData.GetById<MasksModel>(id);
+                    ClothingModel = await masksData.GetById<ClothesModel>(id);
                     break;
                 case "Fins":
-                    FinModel = await finsData.GetById<FinsModel>(id);
+                    ClothingModel = await finsData.GetById<ClothesModel>(id);
                     break;
                 case "Octopus":
                     OctopusModel = await octopusData.GetById<OctopusModel>(id);
@@ -113,33 +109,55 @@ namespace ASPHue.Pages.EditProdcuts
                     break;
             }
         }
-        private async Task UpdateItem(string productType, int id, object _obj)
+        private async Task UpdateItem(string productType, int id)
         {
             switch (productType)
             {
                 case "Neoprene":
-                    await neopreneGearsData.UpdateObject(id, _obj);
+                    await neopreneGearsData.UpdateObject(id, ClothingModel);
                     break;
                 case "BCDs":
-                    await bcdsData.UpdateObject(id, _obj); 
+                    await bcdsData.UpdateObject(id, BCDModel); 
                     break;
                 case "Hoods":
-                    await hoodsData.UpdateObject(id, _obj);
+                    await hoodsData.UpdateObject(id, ClothingModel);
                     break;
                 case "Masks":
-                    await masksData.UpdateObject(id, _obj);
+                    await masksData.UpdateObject(id, ClothingModel);
                     break;
                 case "Fins":
-                    await finsData.UpdateObject(id, _obj);
+                    await finsData.UpdateObject(id, ClothingModel);
                     break;
                 case "Octopus":
-                    await octopusData.UpdateObject(id, _obj);
+                    await octopusData.UpdateObject(id, OctopusModel);
                     break;
                 case "Tanks":
-                    await tanksData.UpdateObject(id, _obj);
+                    await tanksData.UpdateObject(id, TankModel);
                     break;
                 default:
                     break;
+            }
+        }
+        private int GetItemTypeId(string productType)
+        {
+            switch (productType)
+            {
+                case "Neoprene":
+                    return 1;
+                case "BCDs":
+                    return 6;
+                case "Hoods":
+                    return 3;
+                case "Masks":
+                    return 4;
+                case "Fins":
+                    return 2;
+                case "Octopus":
+                    return 5; 
+                case "Tanks":
+                    return 7;
+                default:
+                    return 1;
             }
         }
     }

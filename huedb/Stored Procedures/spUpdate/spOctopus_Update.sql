@@ -2,15 +2,16 @@
 	@Id int,
 	@InternNumber int,
     @Acquired Date,
+	@SerialNumber int,
     @Price int,
     @Condition NVARCHAR(50),
     @Notes NVARCHAR(2000),
     @Composition NVARCHAR(2000),
-    @Piece NVARCHAR(50),
-    @SizeId int,
     @Model NVARCHAR(100),
     @StateId int,
     @Brand NVARCHAR(50)
+	    
+
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -19,6 +20,7 @@ BEGIN
     SET InternNumber = @InternNumber,
         Acquired = @Acquired,
         Price = @Price,
+		SerialNumber = @SerialNumber,
         Condition = @Condition,
         Composition = @Composition,
         StateId = @StateId,
@@ -27,7 +29,3 @@ BEGIN
         Model = @Model
     WHERE Id = @Id; 
 END
-
-
-
-

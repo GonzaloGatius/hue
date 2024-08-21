@@ -1,0 +1,143 @@
+﻿@using libraryhue.Models.Products;
+@model ASPHue.Pages.EditProdcuts.EditProductsModel
+
+@if (Model == null)
+{
+    <h2>Artículo no encontrado.</h2>
+}
+else
+{
+    <form method="post">
+        <div class="form-group">
+            <label class="control-label"><strong>Equipo</strong></label>
+            <h4><input asp-for="@Model.BCDModel.Model" class="form-control" /></h4>
+            <span asp-validation-for="@Model.BCDModel.Model" class="text-danger"></span>
+        </div>
+        <table class="table">
+            <thead>
+            <th type="hidden"></th>
+            <th type="hidden"></th>
+            <th type="hidden"></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Id*@
+                            <p><strong>Id:</strong> @Model.Id</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Adquirido*@
+                            <label class="control-label"><strong>Adquirido</strong></label>
+                            <input type="date" asp-for="@Model.BCDModel.Acquired" />
+                            <span asp-validation-for="@Model.BCDModel.Acquired" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Interno*@
+                            <label class="control-label"><strong>No. Interno</strong></label>
+                            <input asp-for="@Model.BCDModel.InternNumber" class="form-control" />
+                            <span asp-validation-for="@Model.BCDModel.InternNumber" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Estado*@
+                            <label class="control-label"><strong>Estado</strong></label>
+                            <select asp-for="@Model.BCDModel.StateId" asp-items="@Model.StatesSelectList" class="form-control"></select>
+                            <span asp-validation-for="@Model.BCDModel.StateId" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Precio*@
+                            <label class="control-label"><strong>Precio ($)</strong></label>
+                            <input asp-for="@Model.BCDModel.Price" class="form-control" min="0" max="999999999" />
+                            <span asp-validation-for="@Model.BCDModel.Price" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Condición*@
+                            <label class="control-label"><strong>Condición</strong></label>
+                            <input asp-for="@Model.BCDModel.Condition" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.BCDModel.Condition" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Marca*@
+                            <label class="control-label"><strong>Marca</strong></label>
+                            <input asp-for="@Model.BCDModel.Brand" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.BCDModel.Brand" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Modelo*@
+                            <label class="control-label"><strong>Modelo</strong></label>
+                            <input asp-for="@Model.BCDModel.Model" class="form-control" maxlength="99"></input>
+                            <span asp-validation-for="@Model.BCDModel.Model" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Talle*@
+                            <label class="control-label"><strong>Talle</strong></label>
+                            <select asp-for="@Model.BCDModel.SizeId" asp-items="@Model.SizesSelectList" class="form-control" maxlength="49"></select>
+                            <span asp-validation-for="@Model.BCDModel.SizeId" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Válvulas*@
+                            <label class="control-label"><strong>Válvulas</strong></label>
+                            <input asp-for="@Model.BCDModel.Valves" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.BCDModel.Valves" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Poder*@
+                            <label class="control-label"><strong>Poder</strong></label>
+                            <input asp-for="@Model.BCDModel.Power" class="form-control" maxlength="99"></input>
+                            <span asp-validation-for="@Model.BCDModel.Power" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div class="form-group">
+                            @*Notas*@
+                            <label class="control-label"><strong>Notas</strong></label>
+                            <textarea id="notes" asp-for="BCDModel.Notes" class="form-control" rows="5" maxlength="2000"></textarea>
+                            <span asp-validation-for="@Model.BCDModel.Notes" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn">Guardar</button>
+            </td>
+        </tr>
+    </form>
+    @section scripts {
+    @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+}

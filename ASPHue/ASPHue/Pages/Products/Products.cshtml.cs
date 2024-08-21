@@ -33,11 +33,12 @@ namespace ASPHue.Pages.Products
         public int ProductTypeSelectedListId { get; set; } = 1;
         [BindProperty(SupportsGet = true)]
         public ProductTypesModel ProductTypeSelected { get; set; }
+        [BindProperty(SupportsGet = true)]
         public string ProductTypeSelectedName { get; set; }
         public List<SelectListItem> productTypesSelectList { get; set; }
         public List<NeopreneGearsModel> Neoprenes { get; set; }
         public List<BCDsModel> BDCs { get; set; }
-        public List<IClothes> ClothingModel { get; set; }
+        public List<ClothesModel> ClothingModel { get; set; }
         public List<OctopusModel> Octopus { get; set; }
         public List<TanksModel> Tanks { get; set; }
         public ProductsListModel(ISizesData sizesData, IStatesData statesData, IProductTypesData productTypesData, ConnectionStringData connectionStringData, INeopreneGearsData neopreneGearsData, IBCDsData bcdsData, IFinsData finsData, IHoodsData hoodsData, IMasksData masksData, IOctopusData octopusData, ITanksData tanksData, IWeightsData weightData)
@@ -70,23 +71,19 @@ namespace ASPHue.Pages.Products
             switch (ProductTypeSelected.Name)
             {
                 case "Neoprene":
-                    List<NeopreneGearsModel> neopreneList = await neopreneGearsData.GetAll<NeopreneGearsModel>();
-                    ClothingModel = neopreneList.Cast<IClothes>().ToList();
+                    ClothingModel = await neopreneGearsData.GetAll<ClothesModel>();
                     break;
                 case "BCDs":
                     BDCs = await bcdsData.GetAll<BCDsModel>();
                     break;
                 case "Hoods":
-                    List<HoodsModel> hoodsList = await hoodsData.GetAll<HoodsModel>();
-                    ClothingModel = hoodsList.Cast<IClothes>().ToList();
+                    ClothingModel = await hoodsData.GetAll<ClothesModel>();
                     break;
                 case "Masks":
-                    List<MasksModel> masksList = await masksData.GetAll<MasksModel>();
-                    ClothingModel = masksList.Cast<IClothes>().ToList();
+                    ClothingModel = await masksData.GetAll<ClothesModel>();
                     break;
                 case "Fins":
-                    List<FinsModel> finsList = await finsData.GetAll<FinsModel>();
-                    ClothingModel = finsList.Cast<IClothes>().ToList();
+                    ClothingModel = await finsData.GetAll<ClothesModel>();
                     break;
                 case "Octopus":
                     Octopus = await octopusData.GetAll<OctopusModel>();

@@ -1,0 +1,167 @@
+﻿@using libraryhue.Models.Products;
+@model ASPHue.Pages.EditProdcuts.EditProductsModel
+
+@if (Model == null)
+{
+    <h2>Artículo no encontrado.</h2>
+}
+else
+{
+    <form method="post">
+        <div class="form-group">
+            <label class="control-label"><strong>Equipo</strong></label>
+            <h4><input asp-for="@Model.TankModel.Name" class="form-control" /></h4>
+            <span asp-validation-for="@Model.TankModel.Name" class="text-danger"></span>
+        </div>
+        <table class="table">
+            <thead>
+            <th type="hidden"></th>
+            <th type="hidden"></th>
+            <th type="hidden"></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Id*@
+                            <p><strong>Id:</strong> @Model.Id</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Adquirido*@
+                            <label class="control-label"><strong>Adquirido</strong></label>
+                            <input type="date" asp-for="@Model.TankModel.Acquired" />
+                            <span asp-validation-for="@Model.TankModel.Acquired" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Serial Number*@
+                            <label class="control-label"><strong>No. Serie</strong></label>
+                            <input asp-for="@Model.TankModel.SerialNumber" class="form-control" maxlength="99"></input>
+                            <span asp-validation-for="@Model.TankModel.SerialNumber" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Interno*@
+                            <label class="control-label"><strong>No. Interno</strong></label>
+                            <input asp-for="@Model.TankModel.InternNumber" class="form-control" />
+                            <span asp-validation-for="@Model.TankModel.InternNumber" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Estado*@
+                            <label class="control-label"><strong>Estado</strong></label>
+                            <select asp-for="@Model.TankModel.StateId" asp-items="@Model.StatesSelectList" class="form-control"></select>
+                            <span asp-validation-for="@Model.TankModel.StateId" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Precio*@
+                            <label class="control-label"><strong>Precio ($)</strong></label>
+                            <input asp-for="@Model.TankModel.Price" class="form-control" min="0" max="999999999" />
+                            <span asp-validation-for="@Model.TankModel.Price" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Condición*@
+                            <label class="control-label"><strong>Condición</strong></label>
+                            <input asp-for="@Model.TankModel.Condition" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.TankModel.Condition" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Color*@
+                            <label class="control-label"><strong>Color</strong></label>
+                            <input asp-for="@Model.TankModel.Color" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.TankModel.Color" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        @*Hacer Bools Checkbox acá y en HT*@
+                        <div class="form-group"> 
+                            @*Aluminio?*@
+                            <label class="control-label"><strong>Aluminio</strong></label>
+                            <input asp-for="@Model.TankModel.IsAluminium" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.TankModel.IsAluminium" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*Tank Valves*@
+                            <label class="control-label"><strong>Válvulas</strong></label>
+                            <input asp-for="@Model.TankModel.TankValves" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.TankModel.TankValves" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Capacidad*@
+                            <label class="control-label"><strong>No. Válvulas</strong></label>
+                            <input asp-for="@Model.TankModel.Capacity" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.TankModel.Capacity" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*Presión*@
+                            <label class="control-label"><strong>Presión</strong></label>
+                            <input asp-for="@Model.TankModel.Pressure" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.TankModel.Pressure" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @*HT*@
+                            <label class="control-label"><strong>Certificado HT</strong></label>
+                            <input asp-for="@Model.TankModel.HTCertificate" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.TankModel.HTCertificate" class="text-danger"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @*HT Time*@
+                            <label class="control-label"><strong>Fecha HT</strong></label>
+                            <input asp-for="@Model.TankModel.HT" class="form-control" maxlength="49"></input>
+                            <span asp-validation-for="@Model.TankModel.HT" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div class="form-group">
+                            @*Notas*@
+                            <label class="control-label"><strong>Notas</strong></label>
+                            <textarea id="notes" asp-for="TankModel.Notes" class="form-control" rows="5" maxlength="2000"></textarea>
+                            <span asp-validation-for="@Model.TankModel.Notes" class="text-danger"></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn">Guardar</button>
+            </td>
+        </tr>
+    </form>
+    @section scripts {
+    @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+}

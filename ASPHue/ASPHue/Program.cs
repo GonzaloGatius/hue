@@ -3,6 +3,10 @@ using libraryhue.DB;
 using libraryhue;
 using ASPHue.HelperMethods.SelectLists_and_Filters;
 using ASPHue.HelperMethods.TableManagement;
+using libraryhue.Models.Products;
+//--------------------------NOTAS--------------------------------//
+//Hacer que chequeé el número de interno cuando se cambie en un objeto.
+
 
 var builder = WebApplication.CreateBuilder(args);
 
