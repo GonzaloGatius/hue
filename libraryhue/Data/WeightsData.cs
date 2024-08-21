@@ -14,6 +14,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "Weights";
         protected override string spCreateName { get; set; } = "spWeights_create";
+        protected override string spUpdateName { get; set; } = "";
 
         public WeightsData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

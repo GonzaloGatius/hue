@@ -16,15 +16,13 @@
 @switch (Model.ProductTypeSelectedName)
 {
     case "Neoprene":
-        <partial name="_NeoprenePartial" model="Model"/> 
-        break;
-    case "BCDs":
-        <partial name="_BCDsPartial" model="Model"/>
-        break;
     case "Hoods":
     case "Masks":
     case "Fins":
-        <partial name="_AccesoriesPartial" model="Model"/>
+        <partial name="_ClothesPartial" model="Model" />
+        break;
+    case "BCDs":
+        <partial name="_BCDsPartial" model="Model"/>
         break;
     case "Octopus":
         <partial name="_OctopusPartial" model="Model"/>
@@ -33,7 +31,7 @@
         <partial name="_TanksPartial" model="Model"/>
         break;
     default:
-        <partial name="_NeoprenePartial" model="Model.Neoprenes"/>
+        <partial name="_ClothesPartial" model="Model.ClothingModel" />
         break;
 }
 

@@ -68,6 +68,7 @@
     <Folder Include="Stored Procedures\Tanks" />
     <Folder Include="Stored Procedures\spCreate" />
     <Folder Include="Stored Procedures\ProductTypes" />
+    <Folder Include="Stored Procedures\spUpdate" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Stored Procedures\Users\spUsers_updatePassword.sql" />
@@ -109,8 +110,18 @@
     <Build Include="Tables\Rentals\Weights.sql" />
     <Build Include="Stored Procedures\Generics\spGenerics_updateStrings100.sql" />
     <Build Include="Tables\Characteristics\Sizes.sql" />
+    <Build Include="Stored Procedures\spUpdate\spNeopreneGears_Update.sql" />
+    <Build Include="Stored Procedures\spUpdate\spFins_Update.sql" />
+    <Build Include="Stored Procedures\spUpdate\spHoods_Update.sql" />
+    <Build Include="Stored Procedures\spUpdate\spMasks_Update.sql" />
+    <Build Include="Stored Procedures\spUpdate\spBCDs_Update.sql" />
+    <Build Include="Stored Procedures\spUpdate\spTanks_Update.sql" />
+    <Build Include="Stored Procedures\spUpdate\spOctopus_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="huedb.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Inserts.sql" />
   </ItemGroup>
 </Project>

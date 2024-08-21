@@ -14,6 +14,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "RentalCarts";
         protected override string spCreateName { get; set; } = "spRentalCarts_create";
+        protected override string spUpdateName { get; set; } = "";
 
         public RentalCartData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

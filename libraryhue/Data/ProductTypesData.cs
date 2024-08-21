@@ -16,6 +16,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "ProductTypes";
         protected override string spCreateName { get; set; } = "spGenerics_createWithName50";
+        protected override string spUpdateName { get; set; } = "";
 
         public ProductTypesData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

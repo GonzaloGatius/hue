@@ -14,6 +14,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "BCDs";
         protected override string spCreateName { get; set; } = "spBCDs_create";
+        protected override string spUpdateName { get; set; } = "spBCDs_update";
 
         public BCDsData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

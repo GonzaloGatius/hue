@@ -6,15 +6,13 @@
 @switch (Model.Type)
 {
     case "Neoprene":
-        <partial name="_NeopreneEditPartial" model="Model" />
-        break;
-    case "BCDs":
-        <partial name="_BCDsPartial" model="Model" />
-        break;
     case "Hoods":
     case "Masks":
     case "Fins":
-        <partial name="_AccesoriesPartial" model="Model" />
+        <partial name="_ClothesEditPartial" model="Model" />
+        break;
+    case "BCDs":
+        <partial name="_BCDsPartial" model="Model" />
         break;
     case "Octopus":
         <partial name="_OctopusPartial" model="Model" />

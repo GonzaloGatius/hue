@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spNeopreneGears_create]
+    @TableName NVARCHAR(50),
     @InternNumber INT,
-    @Piece NVARCHAR(50),
+    @Model NVARCHAR(50),
     @Stock INT,
     @SizeId INT,
     @Brand NVARCHAR(50),
@@ -15,13 +16,13 @@ AS
 BEGIN
     INSERT INTO [dbo].[NeopreneGears] 
     (
-        [InternNumber], [Piece], [SizeId], 
+        [InternNumber], [Model], [SizeId], 
         [Brand], [Color], [Condition], [StateId], 
         [Acquired], [Price], [Notes]
     )
     VALUES 
     (
-        @InternNumber, @Piece, @SizeId, 
+        @InternNumber, @Model, @SizeId, 
         @Brand, @Color, @Condition, @StateId, 
         @Acquired, @Price, @Notes
     );

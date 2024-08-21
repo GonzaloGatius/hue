@@ -14,6 +14,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "Rentals";
         protected override string spCreateName { get; set; } = "spRentals_create";
+        protected override string spUpdateName { get; set; } = "";
 
         public RentalsData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

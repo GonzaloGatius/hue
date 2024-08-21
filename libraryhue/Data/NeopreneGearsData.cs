@@ -14,6 +14,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "NeopreneGears";
         protected override string spCreateName { get; set; } = "spNeopreneGears_create";
+        protected override string spUpdateName { get; set; } = "spNeopreneGears_update";
 
         public NeopreneGearsData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

@@ -15,6 +15,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "Fins";
         protected override string spCreateName { get; set; } = "spFins_create";
+        protected override string spUpdateName { get; set; } = "spFins_update";
 
         public FinsData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

@@ -16,6 +16,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "States";
         protected override string spCreateName { get; set; } = "spGenerics_createWithName50";
+        protected override string spUpdateName { get; set; } = "";
 
         public StatesData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

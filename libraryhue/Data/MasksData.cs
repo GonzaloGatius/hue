@@ -14,6 +14,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "Masks";
         protected override string spCreateName { get; set; } = "spMasks_create";
+        protected override string spUpdateName { get; set; } = "spMasks_update";
 
         public MasksData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

@@ -14,6 +14,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "Hoods";
         protected override string spCreateName { get; set; } = "spHoods_create";
+        protected override string spUpdateName { get; set; } = "spHoods_update";
 
         public HoodsData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

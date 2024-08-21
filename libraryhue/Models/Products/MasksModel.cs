@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace libraryhue.Models.Products
 {
-    public class MasksModel : IProductsModel, IAccesories
+    public class MasksModel : IProductsModel, IClothes
     {
         public int Id { get; set; }
         public int InternNumber { get; set; }

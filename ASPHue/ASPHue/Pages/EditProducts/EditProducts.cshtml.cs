@@ -1,3 +1,4 @@
+using ASPHue.HelperMethods.SelectLists_and_Filters;
 using libraryhue.Data;
 using libraryhue.DB;
 using libraryhue.Models.Characteristics;
@@ -29,12 +30,26 @@ namespace ASPHue.Pages.EditProdcuts
 
         [BindProperty(SupportsGet = true)]
         public string Type { get; set; }
-        public IAccesories AccesoryModel { get; set; }
-        public NeopreneGearsModel NeopreneGearModel { get; set; }
+
+        [BindProperty]
+        public NeopreneGearsModel NeopreneModel { get; set; }
+        [BindProperty]
+        public FinsModel FinModel { get; set; }
+        [BindProperty]
+        public HoodsModel HoodModel { get; set; }
+        [BindProperty]
+        public MasksModel MaskModel { get; set; }
+        [BindProperty]
         public BCDsModel BCDModel { get; set; }
+        [BindProperty]
         public OctopusModel OctopusModel { get; set; }
+        [BindProperty]
         public TanksModel TankModel { get; set; }
+
+        [BindProperty]
         public List<SelectListItem> StatesSelectList { get; set; } = new List<SelectListItem>();
+
+        [BindProperty]
         public List<SelectListItem> SizesSelectList { get; set; } = new List<SelectListItem>();
 
         public EditProductsModel(ISizesData sizesData, IStatesData statesData, IProductTypesData productTypesData, ConnectionStringData connectionStringData, INeopreneGearsData neopreneGearsData, IBCDsData bcdsData, IFinsData finsData, IHoodsData hoodsData, IMasksData masksData, IOctopusData octopusData, ITanksData tanksData, IWeightsData weightData)
@@ -55,28 +70,38 @@ namespace ASPHue.Pages.EditProdcuts
         public async void OnGetAsync()
         {
             await GetItem(Type, Id);
-            await FillSelectStates();
-            await FillSizesSelect();
+            await SelectListsManager.FillSelectStates(statesData, StatesSelectList);
+            await SelectListsManager.FillSelectSizes(sizesData, SizesSelectList);
         }
 
+        public async void OnPostAsync()
+        {
+            await SelectListsManager.FillSelectStates(statesData, StatesSelectList);
+            await SelectListsManager.FillSelectSizes(sizesData, SizesSelectList);
+            await UpdateItem(Type, Id, NeopreneModel);
+
+
+
+        }
+        //Viendo para que el edit de los Clothes funcione con la interfaz.
         private async Task GetItem(string productType, int id)
         {
             switch (productType)
             {
                 case "Neoprene":
-                    NeopreneGearModel = await neopreneGearsData.GetById<NeopreneGearsModel>(id);
+                    NeopreneModel = await neopreneGearsData.GetById<NeopreneGearsModel>(id);
                     break;
                 case "BCDs":
                     BCDModel = await bcdsData.GetById<BCDsModel>(id);
                     break;
                 case "Hoods":
-                    AccesoryModel = await hoodsData.GetById<HoodsModel>(id);
+                    HoodModel = await hoodsData.GetById<HoodsModel>(id);
                     break;
                 case "Masks":
-                    AccesoryModel = await masksData.GetById<MasksModel>(id);
+                    MaskModel = await masksData.GetById<MasksModel>(id);
                     break;
                 case "Fins":
-                    AccesoryModel = await finsData.GetById<FinsModel>(id);
+                    FinModel = await finsData.GetById<FinsModel>(id);
                     break;
                 case "Octopus":
                     OctopusModel = await octopusData.GetById<OctopusModel>(id);
@@ -88,23 +113,33 @@ namespace ASPHue.Pages.EditProdcuts
                     break;
             }
         }
-
-        public async Task FillSelectStates()
+        private async Task UpdateItem(string productType, int id, object _obj)
         {
-            var states = await statesData.GetAll<StatesModel>();
-            foreach (var i in states)
+            switch (productType)
             {
-                var item = new SelectListItem { Value = i.Id.ToString(), Text = i.Name };
-                StatesSelectList.Add(item);
-            }
-        }
-        public async Task FillSizesSelect()
-        {
-            var sizes = await sizesData.GetAll<SizesModel>();
-            foreach (var i in sizes)
-            {
-                var item = new SelectListItem { Value = i.Id.ToString(), Text = i.Name };
-                SizesSelectList.Add(item);
+                case "Neoprene":
+                    await neopreneGearsData.UpdateObject(id, _obj);
+                    break;
+                case "BCDs":
+                    await bcdsData.UpdateObject(id, _obj); 
+                    break;
+                case "Hoods":
+                    await hoodsData.UpdateObject(id, _obj);
+                    break;
+                case "Masks":
+                    await masksData.UpdateObject(id, _obj);
+                    break;
+                case "Fins":
+                    await finsData.UpdateObject(id, _obj);
+                    break;
+                case "Octopus":
+                    await octopusData.UpdateObject(id, _obj);
+                    break;
+                case "Tanks":
+                    await tanksData.UpdateObject(id, _obj);
+                    break;
+                default:
+                    break;
             }
         }
     }

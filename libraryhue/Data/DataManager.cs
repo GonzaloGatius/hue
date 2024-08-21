@@ -16,6 +16,7 @@ namespace libraryhue.Data
 
         protected abstract string tableName { get; set; }
         protected abstract string spCreateName { get; set; }
+        protected abstract string spUpdateName { get; set; }
 
         public DataManager(IDataAccess dataAccess, ConnectionStringData connectionStringData)
         {
@@ -48,17 +49,25 @@ namespace libraryhue.Data
             return await dataAccess.SaveData<DynamicParameters>(spCreateName, parameters, connectionStringData.ConnectionStringName);
         }
         // UPDATES
-        public async Task UpdateDate(DateTime newDate, string tableColumn)
+        public virtual async Task UpdateObject(int id, object _object)
         {
-            await dataAccess.SaveData<dynamic>("spGenerics_updateDates", new { @newDate = newDate, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.AddDynamicParams(_object);
+            parameters.Add("@Id", id);
+
+            await dataAccess.SaveData<DynamicParameters>(spUpdateName, parameters, connectionStringData.ConnectionStringName);
         }
-        public async Task UpdateInteger(int @newInt, string tableColumn)
+        public async Task UpdateDate(DateTime newDate, string tableColumn, int Id)
         {
-            await dataAccess.SaveData<dynamic>("spGenerics_updateIntegers", new { @newInt = newInt, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
+            await dataAccess.SaveData<dynamic>("spGenerics_updateDates", new { @Id = Id, @newDate = newDate, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
         }
-        public async Task UpdateString(string newString, string stringLength, string tableColumn)
+        public async Task UpdateInteger(int @newInt, string tableColumn, int Id)
         {
-            await dataAccess.SaveData<dynamic>("spGenerics_updateStrings" + stringLength, new { @newString = newString, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
+            await dataAccess.SaveData<dynamic>("spGenerics_updateIntegers", new { @Id = Id, @newInt = newInt, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
+        }
+        public async Task UpdateString(string newString, string stringLength, string tableColumn, int Id)
+        {
+            await dataAccess.SaveData<dynamic>("spGenerics_updateStrings" + stringLength, new { @Id = Id, @newString = newString, @tableName = tableName, @tableColumn = tableColumn }, connectionStringData.ConnectionStringName);
         }
     }
 }

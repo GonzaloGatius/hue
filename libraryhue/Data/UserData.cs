@@ -15,6 +15,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "Users";
         protected override string spCreateName { get; set; } = "spUsers_create";
+        protected override string spUpdateName { get; set; } = "";
 
         public UserData(IDataAccess dataAccess, ConnectionStringData connectionStringData): base(dataAccess, connectionStringData)
         {

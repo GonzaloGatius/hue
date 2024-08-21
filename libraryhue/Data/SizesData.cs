@@ -16,6 +16,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "Sizes";
         protected override string spCreateName { get; set; } = "";
+        protected override string spUpdateName { get; set; } = "";
 
         public SizesData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {

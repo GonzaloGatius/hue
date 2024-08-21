@@ -14,6 +14,7 @@ namespace libraryhue.Data
 
         protected override string tableName { get; set; } = "Octopus";
         protected override string spCreateName { get; set; } = "spOctopus_create";
+        protected override string spUpdateName { get; set; } = "spOctopus_update";
 
         public OctopusData(IDataAccess dataAccess, ConnectionStringData connectionStringData) : base(dataAccess, connectionStringData)
         {
