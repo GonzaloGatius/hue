@@ -123,6 +123,13 @@ else
             </td>
         </tr>
     </form>
+    <form method="post" asp-page-handler="Delete">
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </form>
     @section scripts {
     @{
             await Html.RenderPartialAsync("_ValidationScriptsPartial");
@@ -130,7 +137,7 @@ else
     }
 }
 
-
+@*Agregar Delete en Edit*@
 
 
 

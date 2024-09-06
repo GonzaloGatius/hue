@@ -88,11 +88,10 @@ else
                         </div>
                     </td>
                     <td>
-                        @*Hacer Bools Checkbox acá y en HT*@
                         <div class="form-group"> 
                             @*Aluminio?*@
                             <label class="control-label"><strong>Aluminio</strong></label>
-                            <input asp-for="@Model.TankModel.IsAluminium" class="form-control" maxlength="49"></input>
+                            <input asp-for="@Model.TankModel.IsAluminium" class="form-check-input" type="checkbox" ></input>
                             <span asp-validation-for="@Model.TankModel.IsAluminium" class="text-danger"></span>
                         </div>
                     </td>
@@ -128,7 +127,7 @@ else
                         <div class="form-group">
                             @*HT*@
                             <label class="control-label"><strong>Certificado HT</strong></label>
-                            <input asp-for="@Model.TankModel.HTCertificate" class="form-control" maxlength="49"></input>
+                            <input asp-for="@Model.TankModel.HTCertificate" class="form-check-input" type="checkbox" ></input>
                             <span asp-validation-for="@Model.TankModel.HTCertificate" class="text-danger"></span>
                         </div>
                     </td>

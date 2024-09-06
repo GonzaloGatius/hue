@@ -35,6 +35,11 @@
                     <td>@m.Acquired</td>
                     <td colspan="2">@m.Notes</td>
                     <td><a asp-page="..\EditProducts\EditProducts" asp-route-id="@m.Id" asp-route-type="@Model.ProductTypeSelectedName" class="btn btn-rate">Editar</a></td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@m.Id" asp-route-type="@Model.ProductTypeSelectedName" onsubmit="return confirm('Eliminar ítem?');">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>

@@ -75,9 +75,11 @@ namespace ASPHue.Pages.EditProdcuts
         {
             await SelectListsManager.FillSelectStates(statesData, StatesSelectList);
             await SelectListsManager.FillSelectSizes(sizesData, SizesSelectList);
+           
             await UpdateItem(Type, Id);
             int ProductTypeSelectedListId = GetItemTypeId(Type);
             return RedirectToPage("../Products/Products", new { ProductTypeSelectedListId });
+            
         }
         //Viendo para que el edit de los Clothes funcione con la interfaz.
         private async Task GetItem(string productType, int id)
@@ -158,6 +160,36 @@ namespace ASPHue.Pages.EditProdcuts
                     return 7;
                 default:
                     return 1;
+            }
+        }
+
+        private async Task<bool> CheckDuplicates(string productType)
+        {
+            switch (productType)
+            {
+                case "Neoprene":
+                    var neoprenes = await neopreneGearsData.GetAll<ClothesModel>();
+                    return neoprenes.Any(x => x.InternNumber == ClothingModel.InternNumber);
+                case "BCDs":
+                    var BCDs = await bcdsData.GetAll<ClothesModel>();
+                    return BCDs.Any(x => x.InternNumber == BCDModel.InternNumber);
+                case "Hoods":
+                    var Hoods = await hoodsData.GetAll<ClothesModel>();
+                    return Hoods.Any(x => x.InternNumber == ClothingModel.InternNumber);
+                case "Masks":
+                    var Masks = await masksData.GetAll<ClothesModel>();
+                    return Masks.Any(x => x.InternNumber == ClothingModel.InternNumber);
+                case "Fins":
+                    var Fins = await finsData.GetAll<ClothesModel>();
+                    return Fins.Any(x => x.InternNumber == ClothingModel.InternNumber);
+                case "Octopus":
+                    var Octopus = await octopusData.GetAll<ClothesModel>();
+                    return Octopus.Any(x => x.InternNumber == OctopusModel.InternNumber);
+                case "Tanks":
+                    var Tanks = await tanksData.GetAll<ClothesModel>();
+                    return Tanks.Any(x => x.InternNumber == TankModel.InternNumber);
+                default:
+                    return true;
             }
         }
     }

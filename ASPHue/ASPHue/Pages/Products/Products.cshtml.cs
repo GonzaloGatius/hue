@@ -9,7 +9,6 @@ using ASPHue.HelperMethods.SelectLists_and_Filters;
 using libraryhue.Models.Products;
 using System.Runtime.InteropServices.Marshalling;
 using System.ComponentModel;
-using ASPHue.HelperMethods.TableManagement;
 using System.Reflection;
 
 namespace ASPHue.Pages.Products
@@ -56,16 +55,27 @@ namespace ASPHue.Pages.Products
             this.weightData = weightData;
             this.neopreneGearsData = neopreneGearsData;
         }
-        public async Task OnGet()
+        public async Task OnGetAsync()
         {
-            //Neoprenes = Neoprenes2.OrderBy(x => x.Notes).ToList();
+            var aasdf = ProductTypeSelectedListId;
             await GetProductTypeSelected();
             var productTypes = await productTypesData.GetAll<ProductTypesModel>();
             productTypesSelectList = SelectListsManager.FillProductTypesSelectList(productTypes);
 
             await GetProducts();
         }
-        
+
+        public async Task<IActionResult> OnPostDelete(int id, string type)
+        {
+            await GetProductTypeSelected();
+            await GetProducts();
+            
+            await DeleteProduct(id, type);
+
+            return RedirectToPage(new { ProductTypeSelectedListId });
+        }
+
+
         private async Task GetProducts()
         {
             switch (ProductTypeSelected.Name)
@@ -92,6 +102,7 @@ namespace ASPHue.Pages.Products
                     Tanks = await tanksData.GetAll<TanksModel>();
                     break;
                 default:
+                    ClothingModel = await neopreneGearsData.GetAll<ClothesModel>();
                     break;
             }
         }
@@ -112,6 +123,43 @@ namespace ASPHue.Pages.Products
             var productType =  await productTypesData.GetById<ProductTypesModel>(ProductTypeSelectedListId);
             ProductTypeSelected = productType;
             ProductTypeSelectedName = productType.Name;
+        }
+
+        public async Task DeleteProduct(int id, string type)
+        {
+            switch (type)
+            {
+                case "Neoprene":
+                    await neopreneGearsData.Delete(id);
+                    ProductTypeSelectedListId = 1;
+                    break;
+                case "BCDs":
+                    await bcdsData.Delete(id);
+                    ProductTypeSelectedListId = 6;
+                    break;
+                case "Hoods":
+                    await hoodsData.Delete(id);
+                    ProductTypeSelectedListId = 3;
+                    break;
+                case "Masks":
+                    await masksData.Delete(id);
+                    ProductTypeSelectedListId = 4;
+                    break;
+                case "Fins":
+                    await finsData.Delete(id);
+                    ProductTypeSelectedListId = 2;
+                    break;
+                case "Octopus":
+                    await octopusData.Delete(id);
+                    ProductTypeSelectedListId = 5;
+                    break;
+                case "Tanks":
+                    await tanksData.Delete(id);
+                    ProductTypeSelectedListId = 7;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

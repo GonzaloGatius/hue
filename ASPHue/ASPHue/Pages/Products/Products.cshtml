@@ -1,6 +1,5 @@
 ﻿@page
 @using ASPHue.HelperMethods
-@using ASPHue.HelperMethods.TableManagement
 @using libraryhue.Models.Products
 @using static ASPHue.HelperMethods.SpanishTranslator
 
@@ -12,6 +11,8 @@
     <select asp-for="ProductTypeSelectedListId" asp-items="Model.productTypesSelectList"></select>
     <input type="submit" value="Filtrar" class="btn" />
 </form>
+
+
 <h4>Viendo @GetTranslatedProductName(Model.ProductTypeSelected.Name)</h4>
 @switch (Model.ProductTypeSelectedName)
 {
@@ -31,7 +32,7 @@
         <partial name="_TanksPartial" model="Model"/>
         break;
     default:
-        <partial name="_ClothesPartial" model="Model.ClothingModel" />
+        <partial name="_ClothesPartial" model="Model" />
         break;
 }
 
