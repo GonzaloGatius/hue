@@ -33,6 +33,9 @@ namespace ASPHue.Pages.EditProdcuts
 
         [BindProperty]
         public ClothesModel ClothingModel { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string IntNumberWarning { get; set; } = string.Empty;
        
         [BindProperty]
         public BCDsModel BCDModel { get; set; }
@@ -67,6 +70,7 @@ namespace ASPHue.Pages.EditProdcuts
 
             await SelectListsManager.FillSelectStates(statesData, StatesSelectList);
             await SelectListsManager.FillSelectSizes(sizesData, SizesSelectList);
+            
             await GetItem(Type, Id);
             
         }
@@ -75,10 +79,19 @@ namespace ASPHue.Pages.EditProdcuts
         {
             await SelectListsManager.FillSelectStates(statesData, StatesSelectList);
             await SelectListsManager.FillSelectSizes(sizesData, SizesSelectList);
-           
-            await UpdateItem(Type, Id);
-            int ProductTypeSelectedListId = GetItemTypeId(Type);
-            return RedirectToPage("../Products/Products", new { ProductTypeSelectedListId });
+
+
+            if(!await CheckDuplicates(Type))
+            {
+                await UpdateItem(Type, Id);
+                int ProductTypeSelectedListId = GetItemTypeId(Type);
+                return RedirectToPage("../Products/Products", new { ProductTypeSelectedListId });
+            }
+            else
+            {
+                IntNumberWarning = "  *Número de interno ya en uso.";
+                return RedirectToPage(new {IntNumberWarning, Type, Id });
+            }
             
         }
         //Viendo para que el edit de los Clothes funcione con la interfaz.
@@ -168,8 +181,10 @@ namespace ASPHue.Pages.EditProdcuts
             switch (productType)
             {
                 case "Neoprene":
+                    var model = await neopreneGearsData.GetById<NeopreneGearsModel>(Id); 
                     var neoprenes = await neopreneGearsData.GetAll<ClothesModel>();
-                    return neoprenes.Any(x => x.InternNumber == ClothingModel.InternNumber);
+                    var asd = (model.InternNumber !=  ClothingModel.InternNumber && neoprenes.Any(x => x.InternNumber == ClothingModel.InternNumber));
+                    return asd; //Ac[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 6/9/24
                 case "BCDs":
                     var BCDs = await bcdsData.GetAll<ClothesModel>();
                     return BCDs.Any(x => x.InternNumber == BCDModel.InternNumber);

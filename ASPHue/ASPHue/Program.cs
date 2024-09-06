@@ -4,8 +4,8 @@ using libraryhue;
 using ASPHue.HelperMethods.SelectLists_and_Filters;
 using libraryhue.Models.Products;
 //--------------------------NOTAS--------------------------------//
+//-Hacer que chequeé el número de interno cuando se cambie en un objeto (propios de cada tipo de producto? Si).
 //-Haciendo para crear ítems.
-//-Hacer que chequeé el número de interno cuando se cambie en un objeto (propios de cada tipo de producto?).
 
 
 var builder = WebApplication.CreateBuilder(args);

@@ -38,6 +38,7 @@ else
                     <td>
                         <div class="form-group">@*Interno*@
                             <label class="control-label"><strong>No. Interno</strong></label>
+                            <label class="text-danger"><strong></strong>@Model.IntNumberWarning</label>
                             <input asp-for="@Model.ClothingModel.InternNumber" class="form-control" />
                             <span asp-validation-for="@Model.ClothingModel.InternNumber" class="text-danger"></span>
                         </div>
