@@ -178,31 +178,44 @@ namespace ASPHue.Pages.EditProdcuts
 
         private async Task<bool> CheckDuplicates(string productType)
         {
+            
             switch (productType)
             {
                 case "Neoprene":
-                    var model = await neopreneGearsData.GetById<NeopreneGearsModel>(Id); 
-                    var neoprenes = await neopreneGearsData.GetAll<ClothesModel>();
-                    var asd = (model.InternNumber !=  ClothingModel.InternNumber && neoprenes.Any(x => x.InternNumber == ClothingModel.InternNumber));
-                    return asd; //Ac[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 6/9/24
-                case "BCDs":
-                    var BCDs = await bcdsData.GetAll<ClothesModel>();
-                    return BCDs.Any(x => x.InternNumber == BCDModel.InternNumber);
+                    NeopreneGearsModel neoprene = await neopreneGearsData.GetById<NeopreneGearsModel>(Id); 
+                    List<ClothesModel> clothes = await neopreneGearsData.GetAll<ClothesModel>();
+                    var IdRepeated = (neoprene.InternNumber !=  ClothingModel.InternNumber && clothes.Any(x => x.InternNumber == ClothingModel.InternNumber));
+                    return IdRepeated;
                 case "Hoods":
-                    var Hoods = await hoodsData.GetAll<ClothesModel>();
-                    return Hoods.Any(x => x.InternNumber == ClothingModel.InternNumber);
+                    HoodsModel hood = await hoodsData.GetById<HoodsModel>(Id);
+                    clothes = await hoodsData.GetAll<ClothesModel>();
+                    IdRepeated = (hood.InternNumber != ClothingModel.InternNumber && clothes.Any(x => x.InternNumber == ClothingModel.InternNumber));
+                    return IdRepeated;
                 case "Masks":
-                    var Masks = await masksData.GetAll<ClothesModel>();
-                    return Masks.Any(x => x.InternNumber == ClothingModel.InternNumber);
+                    MasksModel mask = await masksData.GetById<MasksModel>(Id);
+                    clothes = await masksData.GetAll<ClothesModel>();
+                    IdRepeated = (mask.InternNumber != ClothingModel.InternNumber && clothes.Any(x => x.InternNumber == ClothingModel.InternNumber));
+                    return IdRepeated;
                 case "Fins":
-                    var Fins = await finsData.GetAll<ClothesModel>();
-                    return Fins.Any(x => x.InternNumber == ClothingModel.InternNumber);
+                    FinsModel fins = await finsData.GetById<FinsModel>(Id);
+                    clothes = await finsData.GetAll<ClothesModel>();
+                    IdRepeated = (fins.InternNumber != ClothingModel.InternNumber && clothes.Any(x => x.InternNumber == ClothingModel.InternNumber));
+                    return IdRepeated;
+                case "BCDs":
+                    BCDsModel bcd = await bcdsData.GetById<BCDsModel>(Id);
+                    List<BCDsModel> bcds = await bcdsData.GetAll<BCDsModel>();
+                    IdRepeated = (bcd.InternNumber != ClothingModel.InternNumber && bcds.Any(x => x.InternNumber == ClothingModel.InternNumber));
+                    return IdRepeated;
                 case "Octopus":
-                    var Octopus = await octopusData.GetAll<ClothesModel>();
-                    return Octopus.Any(x => x.InternNumber == OctopusModel.InternNumber);
+                    OctopusModel octopus = await octopusData.GetById<OctopusModel>(Id);
+                    List<OctopusModel> octopusList = await octopusData.GetAll<OctopusModel>();
+                    IdRepeated = (octopus.InternNumber != ClothingModel.InternNumber && octopusList.Any(x => x.InternNumber == ClothingModel.InternNumber));
+                    return IdRepeated;
                 case "Tanks":
-                    var Tanks = await tanksData.GetAll<ClothesModel>();
-                    return Tanks.Any(x => x.InternNumber == TankModel.InternNumber);
+                    TanksModel tank = await tanksData.GetById<TanksModel>(Id);
+                    List<TanksModel> tanks = await tanksData.GetAll<TanksModel>();
+                    IdRepeated = (tank.InternNumber != ClothingModel.InternNumber && tanks.Any(x => x.InternNumber == ClothingModel.InternNumber));
+                    return IdRepeated;
                 default:
                     return true;
             }

@@ -4,7 +4,7 @@ using libraryhue;
 using ASPHue.HelperMethods.SelectLists_and_Filters;
 using libraryhue.Models.Products;
 //--------------------------NOTAS--------------------------------//
-//-Hacer que chequeé el número de interno cuando se cambie en un objeto (propios de cada tipo de producto? Si).
+//-Hacer que elimine desde las páginas de Edit tmb, no sólo desde Products.
 //-Haciendo para crear ítems.
 
 
